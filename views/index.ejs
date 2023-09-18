@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&family=Montserrat:wght@600&family=Tilt+Prism&family=Ubuntu&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Tilt+Prism&family=Ubuntu&display=swap" rel="stylesheet">
+    <!-- icons -->
+    <script src="https://kit.fontawesome.com/6d5b2cec0a.js" crossorigin="anonymous"></script>
+    <!-- bootstrap and js -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <title>Medi-Care group of Hospitals</title>
+</head>
+<body>
+      <!-- ======= Top Bar ======= -->
+  <section id="topbar" class="row">
+    <div class="topbar"> <b>Follow Us on Social Media</b> 
+      <a href="https://twitter.com/" class="socials"><i class="fa-brands fa-twitter" style="color: black;"></i></a>
+      <a href="https://www.facebook.com/" class="socials"><i class="fa-brands fa-facebook" style="color: black;"></i></a>
+      <a href="https://www.instagram.com/" class="socials"><i class="fa-brands fa-instagram" style="color: black;"></i></a>
+      <a href="https://www.linkedin.com/" class="socials"><i class="fa-brands fa-linkedin" style="color: black;"></i></a>
+    </div>
+    <!-- <div id="conts" class="col-lg-6"> -->
+
+        <!-- <i class="bi bi-envelope"></i> <a href="mailto:contact@example.com"><b>contact@example.com</b></a> -->
+        <!-- <i class="bi bi-phone" ></i> <b>Ph. No.: +91 123456789</b> -->
+    <!-- </div> -->
+  </section>
+
+  <!-- ======= Header ======= -->
+  <header id="header">
+    <div class="container d-flex align-items-center">
+      <a href="#intro-text" class="logo me-auto"><img src="Hospital-imgs/hospital-logo.jpg" alt="" class="img-fluid"></a>
+      <h2 class="logo me-auto"><a href="/">Medi-Care</a></h2>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+
+        <ul>
+          <li><a class="nav-link scrollto active" href="/">Home</a></li>
+          <li><a class="nav-link scrollto" href="#services">Services</a></li>
+          <li><a class="nav-link scrollto" href="#about-us">About</a></li>
+          <li><a class="nav-link scrollto" href="#departments">Departments</a></li>
+          <!-- <li><a href="/login">Login</a></li>
+          <li><a href="/register">Sign Up</a></li> -->
+          <% if(!currentUser) {%>
+            <li><a class="nav-link" href="/login">Login</a></li>
+            <li><a class="nav-link" href="/register">Register</a></li>
+            <% } else {%>
+              <li><a class="nav-link" href="/logout">Logout</a></li>
+              <% } %>
+          <!-- <li><a href="/doctors">Doctors</a></li> -->
+
+          <!-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="#">Drop Down 1</a></li>
+              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="#">Deep Drop Down 1</a></li>
+                  <li><a href="#">Deep Drop Down 2</a></li>
+                  <li><a href="#">Deep Drop Down 3</a></li>
+                  <li><a href="#">Deep Drop Down 4</a></li>
+                  <li><a href="#">Deep Drop Down 5</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Drop Down 2</a></li>
+              <li><a href="#">Drop Down 3</a></li>
+              <li><a href="#">Drop Down 4</a></li>
+            </ul>
+          </li> -->
+          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+      <a href="/appointment" class="appointment-btn scrollto"><span class="d-none d-md-inline">Make an</span> Appointment</a>
+
+    </div>
+  </header><!-- End Header -->
+  
+  <section class="intro-carousel" id="intro-text">
+    <div id="intro-carousel" class="carousel slide" data-bs-ride="carousel">
+      <!-- <div class="carousel-indicators">
+        <button type="button" data-bs-target="#intro-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#intro-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#intro-carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div> -->
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="Hospital-imgs/doctors.jpg" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h3 style="color: black;">Our team of over 10k doctors to provide you with the best of modern healthcare.</h3>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="Hospital-imgs/third.jpg" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h3 style="color: black;">Providing you with world's best health care facilities and top notch medicinal services.</h3>
+          </div>
+        </div>
+        <!-- <div class="carousel-item">
+          <img src="..." class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Third slide label</h5>
+            <p>Some representative placeholder content for the third slide.</p>
+          </div>
+        </div> -->
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#intro-carousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#intro-carousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </section>
+  <br>
+  <section class="services" id="services">
+    <h2 class="section-heading">What would you like to do today?</h2>
+    <div class="row">
+      <div class="services-column col-lg-4 col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <a href="/login">
+            <img src="https://www.apollohospitals.com/wp-content/themes/apollohospitals/assets-v3/images/bookappt_icon.svg" alt="icon" width="64">
+          </div>
+          <div class="card-body">
+            <h5 class="services-text">Book Appointment</h5>
+          </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="services-column col-lg-4 col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <a href="#">
+            <img src="https://www.apollohospitals.com/wp-content/themes/apollohospitals/assets-v3/images/buymedicines_icon.svg" alt="icon" width="64">
+          </div>
+          <div class="card-body">
+            <h5 class="services-text">Buy Medicine</h5>
+          </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="services-column col-lg-4 col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <a href="/login">
+            <img src="https://www.apollohospitals.com/wp-content/themes/apollohospitals/assets-v3/images/finddoctor_icon.svg" alt="icon" width="64">
+          </div>
+          <div class="card-body">
+            <h5 class="services-text">View Health Record</h5>
+          </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ======= Departments Section ======= -->
+  <section id="departments" class="departments">
+    <div class="container">
+
+      <div class="section-title">
+        <h2 class="dept">Departments</h2>
+        <p class="fonts">Learn about the world class Health Care we provide</p>
+      </div>
+      <div class="row gy-4">
+        <div class="col-lg-3">
+          <ul class="nav nav-tabs flex-column">
+            <li class="nav-item">
+              <a class="nav-link active show" data-bs-toggle="tab" href="#tab-1">Cardiology</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="tab" href="#tab-2">Neurology</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="tab" href="#tab-3">Hepatology</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="tab" href="#tab-4">Pediatrics</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="tab" href="#tab-5">Eye Care</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="tab" href="#tab-6">Gynecology</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="tab" href="#tab-7">Dermatology</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="tab" href="#tab-8">Orthopaedic</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="tab" href="#tab-9">Dentistry</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-lg-9">
+          <div class="tab-content">
+            <div class="tab-pane active show" id="tab-1">
+              <div class="row gy-4">
+                <div class="col-lg-8 details order-2 order-lg-1">
+                  <h3>Cardiology</h3>
+                  <p class="fonts">Qui laudantium consequatur laborum sit qui ad sapiente dila parde sonata raqer a videna mareta paulona marka</p>
+                  <p class="fonts">Et nobis maiores eius. Voluptatibus ut enim blanditiis atque harum sint. Laborum eos ipsum ipsa odit magni. Incidunt hic ut molestiae aut qui. Est repellat minima eveniet eius et quis magni nihil. Consequatur dolorem quaerat quos qui similique accusamus nostrum rem vero</p>
+                      <a href="/doctors/Cardiology" class="appointment-btn scrollto"><span class="d-none d-md-inline">View</span> Doctors</a>
+                </div>
+                <div class="col-lg-4 text-center order-1 order-lg-2">
+                  <img src="Hospital-imgs/cardiology.jpg" alt="" class="img-fluid">
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane" id="tab-2">
+              <div class="row gy-4">
+                <div class="col-lg-8 details order-2 order-lg-1">
+                  <h3>Neurology</h3>
+                  <p class="fonts">Qui laudantium consequatur laborum sit qui ad sapiente dila parde sonata raqer a videna mareta paulona marka</p>
+                  <p class="fonts">Ea ipsum voluptatem consequatur quis est. Illum error ullam omnis quia et reiciendis sunt sunt est. Non aliquid repellendus itaque accusamus eius et velit ipsa voluptates. Optio nesciunt eaque beatae accusamus lerode pakto madirna desera vafle de nideran pal</p>
+                  <a href="/doctors/Neurology" class="appointment-btn scrollto"><span class="d-none d-md-inline">View</span> Doctors</a>
+                </div>
+                <div class="col-lg-4 text-center order-1 order-lg-2">
+                  <img src="Hospital-imgs/neurology.jpg" alt="" class="img-fluid">
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane" id="tab-3">
+              <div class="row gy-4">
+                <div class="col-lg-8 details order-2 order-lg-1">
+                  <h3>Hepatology</h3>
+                  <p class="fonts">Eos voluptatibus quo. Odio similique illum id quidem non enim fuga. Qui natus non sunt dicta dolor et. In asperiores velit quaerat perferendis aut</p>
+                  <p class="fonts">Iure officiis odit rerum. Harum sequi eum illum corrupti culpa veritatis quisquam. Neque necessitatibus illo rerum eum ut. Commodi ipsam minima molestiae sed laboriosam a iste odio. Earum odit nesciunt fugiat sit ullam. Soluta et harum voluptatem optio quae</p>
+                  <a href="/doctors/Hepatology" class="appointment-btn scrollto"><span class="d-none d-md-inline">View</span> Doctors</a>
+                </div>
+                <div class="col-lg-4 text-center order-1 order-lg-2">
+                  <img src="Hospital-imgs/Hepatology.jpg" alt="" class="img-fluid">
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane" id="tab-4">
+              <div class="row gy-4">
+                <div class="col-lg-8 details order-2 order-lg-1">
+                  <h3>Pediatrics</h3>
+                  <p class="fonts">Totam aperiam accusamus. Repellat consequuntur iure voluptas iure porro quis delectus</p>
+                  <p class="fonts">Eaque consequuntur consequuntur libero expedita in voluptas. Nostrum ipsam necessitatibus aliquam fugiat debitis quis velit. Eum ex maxime error in consequatur corporis atque. Eligendi asperiores sed qui veritatis aperiam quia a laborum inventore</p>
+                  <a href="/doctors/Pediatrics" class="appointment-btn scrollto"><span class="d-none d-md-inline">View</span> Doctors</a>
+                </div>
+                <div class="col-lg-4 text-center order-1 order-lg-2">
+                  <img src="Hospital-imgs/pediatrics.jpg" alt="" class="img-fluid">
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane" id="tab-5">
+              <div class="row gy-4">
+                <div class="col-lg-8 details order-2 order-lg-1">
+                  <h3>Ophthalmology</h3>
+                  <p class="fonts">Omnis blanditiis saepe eos autem qui sunt debitis porro quia.</p>
+                  <p class="fonts">Exercitationem nostrum omnis. Ut reiciendis repudiandae minus. Omnis recusandae ut non quam ut quod eius qui. Ipsum quia odit vero atque qui quibusdam amet. Occaecati sed est sint aut vitae molestiae voluptate vel</p>
+                  <a href="/doctors/Opthalmology" class="appointment-btn scrollto"><span class="d-none d-md-inline">View</span> Doctors</a>
+                </div>
+                <div class="col-lg-4 text-center order-1 order-lg-2">
+                  <img src="Hospital-imgs/Ophthalmology.jpg" alt="" class="img-fluid">
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane" id="tab-6">
+              <div class="row gy-4">
+                <div class="col-lg-8 details order-2 order-lg-1">
+                  <h3>Gynecology</h3>
+                  <p class="fonts">Omnis blanditiis saepe eos autem qui sunt debitis porro quia.</p>
+                  <p class="fonts">Exercitationem nostrum omnis. Ut reiciendis repudiandae minus. Omnis recusandae ut non quam ut quod eius qui. Ipsum quia odit vero atque qui quibusdam amet. Occaecati sed est sint aut vitae molestiae voluptate vel</p>
+                  <a href="/doctors" class="appointment-btn scrollto"><span class="d-none d-md-inline">View</span> Doctors</a>
+                </div>
+                <div class="col-lg-4 text-center order-1 order-lg-2">
+                  <img src="Hospital-imgs/gynecology.jpg" alt="" class="img-fluid">
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane" id="tab-7">
+              <div class="row gy-4">
+                <div class="col-lg-8 details order-2 order-lg-1">
+                  <h3>Dermatology</h3>
+                  <p class="fonts">Omnis blanditiis saepe eos autem qui sunt debitis porro quia.</p>
+                  <p class="fonts">Exercitationem nostrum omnis. Ut reiciendis repudiandae minus. Omnis recusandae ut non quam ut quod eius qui. Ipsum quia odit vero atque qui quibusdam amet. Occaecati sed est sint aut vitae molestiae voluptate vel</p>
+                  <a href="/doctors" class="appointment-btn scrollto"><span class="d-none d-md-inline">View</span> Doctors</a>
+                </div>
+                <div class="col-lg-4 text-center order-1 order-lg-2">
+                  <img src="Hospital-imgs/dermatology.jpg" alt="" class="img-fluid">
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane" id="tab-8">
+              <div class="row gy-4">
+                <div class="col-lg-8 details order-2 order-lg-1">
+                  <h3>Orthopaedic</h3>
+                  <p class="fonts">Omnis blanditiis saepe eos autem qui sunt debitis porro quia.</p>
+                  <p class="fonts">Exercitationem nostrum omnis. Ut reiciendis repudiandae minus. Omnis recusandae ut non quam ut quod eius qui. Ipsum quia odit vero atque qui quibusdam amet. Occaecati sed est sint aut vitae molestiae voluptate vel</p>
+                  <a href="/doctors" class="appointment-btn scrollto"><span class="d-none d-md-inline">View</span> Doctors</a>
+                </div>
+                <div class="col-lg-4 text-center order-1 order-lg-2">
+                  <img src="Hospital-imgs/ortho.jpg" alt="" class="img-fluid">
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane" id="tab-9">
+              <div class="row gy-4">
+                <div class="col-lg-8 details order-2 order-lg-1">
+                  <h3>Dentistry</h3>
+                  <p class="fonts">Omnis blanditiis saepe eos autem qui sunt debitis porro quia.</p>
+                  <p class="fonts">Exercitationem nostrum omnis. Ut reiciendis repudiandae minus. Omnis recusandae ut non quam ut quod eius qui. Ipsum quia odit vero atque qui quibusdam amet. Occaecati sed est sint aut vitae molestiae voluptate vel</p>
+                  <a href="/doctors" class="appointment-btn scrollto"><span class="d-none d-md-inline">View</span> Doctors</a>
+                </div>
+                <div class="col-lg-4 text-center order-1 order-lg-2">
+                  <img src="Hospital-imgs/dentistry.jpg" alt="" class="img-fluid">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <!-- End Departments Section -->
+  <section id="about-us">
+    <div class="container">
+      <h2 class="about-us">Why Us?</h2>
+      <p class="fonts" id="abt">Welcome to Medi-Care, where compassionate care meets cutting-edge medical expertise. 
+
+        At Medi-Care, our commitment to your well-being is paramount. With a legacy of excellence spanning 8+ years, we have been at the forefront of providing exceptional healthcare services to our community and beyond. 
+        
+        Our mission is simple: to heal with heart and innovate with purpose. We understand that each patient is unique, and we tailor our approach to ensure that your medical journey is as personalized as possible. Our dedicated team of highly skilled doctors, nurses, and healthcare professionals is driven by a shared passion for delivering the highest quality care.
+        
+        What sets us apart is our relentless pursuit of medical advancements. We consistently invest in the latest technologies, research, and training to offer you treatments and interventions that are at the forefront of modern medicine. This commitment to innovation allows us to diagnose accurately, treat effectively, and promote overall wellness.
+        
+        Patient-centered care is the core of our philosophy. We believe that open communication, respect, and empathy are essential in fostering a positive healing environment. Your comfort, concerns, and questions are of utmost importance to us, and we strive to provide comprehensive information to empower you to make informed decisions about your health.
+        
+        Our state-of-the-art facilities are designed to ensure your comfort and safety. From our well-appointed patient rooms to our advanced operating theaters, every aspect of Medi-Care has been thoughtfully curated to enhance your healthcare experience.
+        
+        As a responsible community member, we are dedicated to promoting health awareness and education. Through health camps, workshops, and outreach programs, we aim to empower individuals and families to prioritize their well-being.
+        
+        Thank you for entrusting us with your health. Whether you're seeking routine medical care or facing a complex medical challenge, Medi-Care is here to provide you with unwavering support, exceptional care, and a path to better health.
+        
+        Your health, our priority. Welcome to Medi-Care.</p>
+    </div>
+  </section>
+  <!-- gallery section -->
+  <section class="intro-carousel" id="intro-text">
+    <div id="intro-carousel" class="carousel slide" data-bs-ride="carousel">
+      <!-- <div class="carousel-indicators">
+        <button type="button" data-bs-target="#intro-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#intro-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#intro-carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div> -->
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="https://bmcrissh.karnataka.gov.in/storage/pdf-files/Hospital%20Gallery/Collage.jpg" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h3 style="color: black;">Our team of over 10k doctors to provide you with the best of modern healthcare.</h3>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="Hospital-imgs/third.jpg" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h3 style="color: black;">Providing you with world's best health care facilities and top notch medicinal services.</h3>
+          </div>
+        </div>
+        <!-- <div class="carousel-item">
+          <img src="..." class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Third slide label</h5>
+            <p>Some representative placeholder content for the third slide.</p>
+          </div>
+        </div> -->
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#intro-carousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#intro-carousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </section>
+  <!-- ======= Counts Section ======= -->
+    <section id="counts" class="counts">
+      <div class="container grid grid-four-column">
+        <div class="col-lg-3 col-md-6">
+          <i class="fas fa-user-md"  id="count-icon"></i>
+          <span class="purecounter" data-val="300">000 +</span>
+          <!-- <h2 class="counter-numbers">200+</h2> -->
+          <p class="counter-text">Doctors</p>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <i class="far fa-hospital" id="count-icon"></i>
+            <span class="purecounter" data-val="15">00 +</span>
+            <p class="counter-text">Departments</p>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <i class="fas fa-flask" id="count-icon"></i>
+              <span class="purecounter" data-val="400">000 +</span>
+              <p class="counter-text">Research Labs</p>
+              </div>
+              <div class="col-lg-3 col-md-6">
+                <i class="fas fa-award" id="count-icon"></i>
+                <span class="purecounter" data-val="50">00 +</span>
+                <p class="counter-text">Awards</p>
+                </div>
+          <!-- <div class="col-lg-3 col-md-6">
+            <div class="count-box">
+              <i class="fas fa-user-md"></i>
+              <span data-purecounter-start="0" data-purecounter-end="85" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Doctors</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
+            <div class="count-box">
+              <i class="far fa-hospital"></i>
+              <span data-purecounter-start="0" data-purecounter-end="18" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Departments</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+            <div class="count-box">
+              <i class="fas fa-flask"></i>
+              <span data-purecounter-start="0" data-purecounter-end="12" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Research Labs</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+            <div class="count-box">
+              <i class="fas fa-award"></i>
+              <span data-purecounter-start="0" data-purecounter-end="150" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Awards</p>
+            </div>
+          </div> -->
+
+      </div>
+    </section><!-- End Counts Section -->
+    <a href="tel:+917003145004" class="btn-quick-callcta" id="cta_Call_Us_Now">
+      <span class="img">
+        <img data-lazyloaded="1" src="https://cdn.apollohospitals.com/dev-apollohospitals/2023/05/telephone-call-2-1.png" data-src="https://cdn.apollohospitals.com/dev-apollohospitals/2023/05/telephone-call-2-1.png" data-ll-status="loaded" class="entered litespeed-loaded lazy-loaded">
+      </span>
+      <span class="call-txt">Call Us Now</span>
+      <span class="call-num">+91 7003145004</span>
+    </a>
+    <div id="preloader"></div>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- contacts -->
+    <section id="contacts">
+    <div class="container" id="contacts">
+      <div class="newsletter js-rollover" data-radius="50">
+          <svg viewBox="0 0 694 549" width="694" height="549">
+            <path d="M74.7,439.6c58.9,76.3,152.2,113.1,224.6,109C585.8,532.3,734.2,295,684.7,94.2C658.7-11.3,508.1-8.6,433.6,9.8C384.1,22,329.1,47.8,277.8,60.4c-42.5,10.5-90,7.2-130.4,17.1C60.4,99-21.1,201.9,4.9,307.6C16.7,355.3,45.2,401.4,74.7,439.6z"></path>
+          </svg>
+    
+          <h2 class="newsletter-title">Get info about<br>our latest technologies</h2>
+          <p class="newsletter-text">Register to our newsletter and don't miss anything anymore. We promise we will not spam you!</p>
+    
+          <form method="GET" action="https://kikk.us6.list-manage.com/subscribe" class="newsletter-form" target="_blank">
+            <input type="hidden" name="u" value="d08fe605a9149dc54a3c13f44">
+            <input type="hidden" name="id" value="96f67efdeb">
+            <input type="email" name="EMAIL" id="email" placeholder="Enter your email">
+            <button type="submit" class="button">Subscribe</button>
+          </form>
+        </div>
+    </div>
+  </section>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  <script src="/javascripts/app.js"></script>
+  <script src="/javascripts/main.js"></script>
+</body>
+
+</html>
+      
+<!-- login page -->
+<!-- <form>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1">
+    </div>
+    <div class="mb-3 form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
