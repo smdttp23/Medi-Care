@@ -59,6 +59,17 @@
     <div class="dept">
         <table id="appt-table" class="table">
             <tr class="trow">
+                <td>
+                    <form method="post" action="/appointment/history">
+                        <label>Enter patient name: </label>
+                </td>
+                <td>
+                    <h4>
+                        <input class="form-control" type="text" id="name" name="name" required>
+                    </h4>
+                </td>
+            </tr>
+            <tr class="trow">
                 <td><label for="">Specialization</label></td>
                 <td><select name="Select1" id="Select1" onchange="populate(this.id, 'Select2')">     
                     <option value="">--Choose department--</option>
@@ -85,7 +96,7 @@
                 </select></td>
             </tr>
             <tr class="trow">
-                <td>Select Date and your preffered Time Slot: </td>
+                <td><label>Select Date and your preffered Time Slot: </label></td>
                 <td>
                     <h4>
                         <input type="datetime-local" id="Test_DatetimeLocal">
@@ -100,11 +111,20 @@
                 </select></td>
             </tr> -->
         </table>
+    </form>
     </div>
 </Section>
-<form class="history-form" action="/history" method="get">
-    <button class="history-btn">View medical history</button>
-</form>
+<section>
+    <div>
+        <button class="history-btn">Create Appointment!</button>
+    </div>
+    <div>
+        <form class="history-form" action="/appointment/history" method="get">
+            <button class="history-btn">View medical history</button>
+        </form>
+    </div>
+</section>
+
 <script>
    
     $("#Select1").change(function(){

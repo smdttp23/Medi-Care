@@ -3,6 +3,7 @@ const path = require('path');
 const mongoose = require('mongoose');
 const doc = require('./models/doctors');
 const User = require('./models/user');
+const Appt = require('./models/appt');
 const Users = require('./routes/users');
 const bodyParser = require("body-parser");
 const methodOverride = require('method-override');
@@ -47,7 +48,7 @@ const sessionConfig = {
     maxAge: 1000 * 60 * 60 * 24 * 7
   }
 }
-// This allows us to pass data from the form
+// This allows us to pass data from the form to server=>middleware
 app.use(express.urlencoded({ extended: true }));
 
 app.use(methodOverride('_method'));
@@ -105,6 +106,11 @@ app.get('/doctors/Pediatrics', async(req,res)=>{
 app.get("/appointment",isLoggedIn, async(req, res) => {
   const doctor = await doc.find({});
   res.render('appointment', {doctor});
+});
+app.post("/appointment/history",isLoggedIn, async(req, res) => {
+  const appointment = req.body;
+  console.log(req.body);
+  
 });
 
 app.listen(port, () => {

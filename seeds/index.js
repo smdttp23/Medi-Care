@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const doc = require('../models/doctors');
+const appt = require('../models/appt');
 const { doctors } = require('./doctors');
 const { v4: uuid} = require('uuid');
 const path = require('path');
