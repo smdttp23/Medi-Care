@@ -16,8 +16,8 @@ var LocalStrategy = require('passport-local');
 var crypto = require('crypto');
 const userRoute = require('./routes/users');
 const flash = require('connect-flash');
-const {isLoggedIn} = require('./middleware');
-require('dotenv').config({path: path.resolve(__dirname, "./.env")});
+const { isLoggedIn } = require('./middleware');
+require('dotenv').config({ path: path.resolve(__dirname, "./.env") });
 
 // Initalise a new express application
 const app = express();
@@ -71,7 +71,7 @@ app.use((req, res, next) => {
 app.get("/", (req, res) => {
   res.render("index");
 });
-app.use('/', userRoute); 
+app.use('/', userRoute);
 app.get('/history', (req, res) => {
   res.render('history')
 })
@@ -87,35 +87,46 @@ app.get('/api/doctors', async (req, res) => {
     console.log(doctors);
     res.json(doctors);
   }
-      catch (error) {
+  catch (error) {
     console.error('Error fetching doctors:', error);
     res.status(500).json({ error: 'An error occurred while fetching doctors' });
   }
 });
-app.get('/doctors/Cardiology', async(req,res)=>{
-  const doctor = await doc.find({dept: 'Cardiology'});
-  res.render('doctors/cardio', {doctor})
-  
+app.get('/doctors/Cardiology', async (req, res) => {
+  const doctor = await doc.find({ dept: 'Cardiology' });
+  res.render('doctors/cardio', { doctor })
+
 })
-app.get('/doctors/Pediatrics', async(req,res)=>{
-  const doctor = await doc.find({dept: 'Pediatrics'});
-  res.render('doctors/pedia', {doctor})
-  
+app.get('/doctors/Pediatrics', async (req, res) => {
+  const doctor = await doc.find({ dept: 'Pediatrics' });
+  res.render('doctors/pedia', { doctor })
+
 })
 
-app.get("/appointment",isLoggedIn, async(req, res) => {
+app.get("/appointment", isLoggedIn, async (req, res) => {
   const doctor = await doc.find({});
-  res.render('appointment', {doctor});
+  res.render('appointment', { doctor });
 });
-app.post("/appointment/history",isLoggedIn, async(req, res) => {
-  const appointment = req.body;
-  console.log(req.body);
-  
+app.get('/appointment/history', isLoggedIn, async (req, res) => {
+  const userEmail = req.user.email;
+  console.log(userEmail);
+  const bookings = await Appt.find({ userEmail: userEmail });
+  res.json(bookings);
+})
+app.post("/appointment/history", isLoggedIn, async (req, res) => {
+  const appointment = await new Appt({
+    name: req.body.name,
+    userEmail: req.user.email,
+    Select1: req.body.Select1,
+    Select2: req.body.Select2,
+    apptTime: req.body.timeSlot
+  }).save();
+  res.status(200).json("success");
 });
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
-});  
+});
 
 
 
