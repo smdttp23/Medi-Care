@@ -3,6 +3,10 @@ const Schema = mongoose.Schema;
 
 const apptSchema = new Schema({
     name: String,
+    phno: Number,
+    age: Number,
+    weight: Number,
+    height: Number,
     userEmail: String,
     Select1: String,
     Select2: String,

@@ -111,17 +111,32 @@ app.get('/appointment/history', isLoggedIn, async (req, res) => {
   const userEmail = req.user.email;
   console.log(userEmail);
   const bookings = await Appt.find({ userEmail: userEmail });
-  res.json(bookings);
-})
+  bookings.forEach((appointment) => {
+    console.log('Name:', appointment.name);
+    console.log('Phone Number:', appointment.phno);
+    console.log('Age:', appointment.age);
+    console.log('Height:', appointment.height);
+    console.log('Weight:', appointment.weight);
+    console.log('Department:', appointment.Select1);
+    console.log('Doctor Consulted:', appointment.Select2);
+    console.log('Appointment Time:', appointment.apptTime);
+    // Display or process appointment details as needed
+  })
+  res.render('history', {bookings});
+});
 app.post("/appointment/history", isLoggedIn, async (req, res) => {
   const appointment = await new Appt({
     name: req.body.name,
+    phno: req.body.phno,
+    age: req.body.age,
+    weight: req.body.weight,
+    height: req.body.height,
     userEmail: req.user.email,
     Select1: req.body.Select1,
     Select2: req.body.Select2,
     apptTime: req.body.timeSlot
   }).save();
-  res.status(200).json("success");
+  res.send('<script>alert("Appointment Booked Successfully! Please check your Medical Records for further updates"); window.location.href = "/";</script>');
 });
 
 app.listen(port, () => {

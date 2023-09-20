@@ -87,7 +87,44 @@
                             </td>
                         </tr>
                         <tr class="trow">
-                            <td><label for="">Specialization</label></td>
+                            <td>
+                                <label for="name">Phone Number (with Country Code): </label>
+                            </td>
+                            <td>
+                                <h4>
+                                    <input class="form-control" type="number" id="phno" name="phno" required>
+                                </h4>
+                            </td>
+                        </tr>
+                        <tr class="trow">
+                            <td>
+                                <label for="name">Enter patient age: </label>
+                            </td>
+                            <td>
+                                <h4>
+                                    <input class="form-control" type="number" id="age" name="age" required>
+                                </h4>
+                            </td>
+                            <td>
+                                <label for="name">Enter patient height: </label>
+                            </td>
+                            <td>
+                                <h4>
+                                    <input class="form-control" type="number" id="height" name="height" required>
+                                </h4>
+                            </td>
+                            <td>
+                                <label for="name">Enter patient weight: </label>
+                            </td>
+                            <td>
+                                <h4>
+                                    <input class="form-control" type="number" id="weight" name="weight" required>
+                                </h4>
+                            </td>
+                        </tr>
+                        
+                        <tr class="trow">
+                            <td><label for="">Specialization: </label></td>
                             <td><select name="Select1" id="Select1" onchange="populate(this.id, 'Select2')">
                                     <option value="">--Choose department--</option>
                                     <option value="Cardiology">Cardiology</option>
@@ -133,8 +170,7 @@
                     </div>
                 </form>
             </div>
-        </Section>
-        <section>
+    
             <div>
                 <form class="history-form" action="/appointment/history" method="get">
                     <button class="history-btn">View medical history</button>

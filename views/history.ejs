@@ -50,7 +50,36 @@
       <!-- Uncomment below if you prefer to use an image logo --></div></header>
 </head>
 <body>
-    <h1>Medical records stored here. Booking succcessful!</h1>
+    <h1>Medical records stored here.</h1>
+    <div>
+      <table>
+        <tr>
+          <th>Date of Consultancy</th>
+          <th>Patient Name</th>
+          <th>Department Consulted</th>
+          <th>Doctor Consulted</th>
+          <th>View Prescription</th>
+          <th>Additional Remarks</th>
+        </tr>
+        <tr>
+          <% bookings.forEach((appointment) => { %>
+          <td>
+            <% appointment.apptTime %>
+          </td>
+          <td>
+            <% appointment.name %>
+          </td>
+          <td>
+            <% appointment.Select1 %>
+          </td>
+          <td>
+            <button>view presc.</button>
+          </td>
+          <% }) %>
+        </tr>
+      </table>
+    </div>
+    <button></button>
     <form action="/logout" method="GET">
         <button>Sign Out</button>
     </form>
