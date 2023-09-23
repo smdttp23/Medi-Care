@@ -47,7 +47,7 @@
       <h2 class="logo me-auto"><a href="/">Medi-Care</a></h2>
       <!-- Uncomment below if you prefer to use an image logo -->
       </div>
-      <div>
+      <div class="loginReg-div">
       <h3 class="regLogin-heading" style="color: #164B60;">Please Login To Access All Functionalities!</h3>
     <form action="/login" method="POST" class="validated-form" novalidate>
         <div class="login">
@@ -72,12 +72,14 @@
             </tr>
           </table>
     </div>
-    <button class="btn btn-success">Login</button>
+    <div class="login-btn">
+    <button class="btn btn-success" id="button">Login</button> </div></form>
+    <div class="lg-6">
+    <form class="reg-form" action="/register" method="get">
+      <h4>New User? <button class="btn btn-success" id="button">Sign Up</button></div></h4>
+    
     </form>
-    <form action="/register" method="get">
-      <h4>New User?</h4>
-    <button class="btn btn-success">Sign Up</button>
-    </form>
+  
     
 </div>
 <script src="javascripts/validateform.js"></script>

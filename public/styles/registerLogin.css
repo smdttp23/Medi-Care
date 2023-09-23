@@ -1,14 +1,14 @@
+.loginReg-div{
+    offset: 6;
+}
 .regLogin-heading{
     padding: 10px 5px;
     text-align: center;
 }
 .form-label{
     align-items: center;
-    padding-top: 15%;
-    padding-left: 35%;
-}
-.form-control{
-    width: 40%;
+    padding-top: 5%;
+    padding-left: 300px;
 }
 .regLogin-table{
     align-items: center;
@@ -21,6 +21,17 @@
     align-items: center;
     padding-left: 50px;
   }
-#reg-btn{
+  .reg-form{
     align-items: center;
-}
+    padding-top: 15px;
+    padding-left: 35%;
+  }
+  .login-btn{
+    align-items: center;
+    padding-top: 15px;
+    padding-left: 35%;
+  }
+  #button{
+    padding-left: 5%;
+    padding-right: 5%;
+  }
