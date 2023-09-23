@@ -1,87 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<%- layout('layouts/boilerplate') %>
+
+  <head>
+    <title>Medi-Care Login</title>
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/users.css">
     <link rel="stylesheet" href="styles/registerLogin.css">
-    <!-- fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&family=Montserrat:wght@600&family=Tilt+Prism&family=Ubuntu&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Tilt+Prism&family=Ubuntu&display=swap" rel="stylesheet">
-    <!-- icons -->
-    <script src="https://kit.fontawesome.com/6d5b2cec0a.js" crossorigin="anonymous"></script>
-    <!-- bootstrap and js -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <!-- <script src="../seeds/main.js"></script> -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <title>Medi-Care Login</title>
-</head>
-<body>
-        <!-- ======= Top Bar ======= -->
-  <section id="topbar" class="row">
-    <div class="topbar"> <b>Follow Us on Social Media</b> 
-      <a href="https://twitter.com/" class="socials"><i class="fa-brands fa-twitter" style="color: black;"></i></a>
-      <a href="https://www.facebook.com/" class="socials"><i class="fa-brands fa-facebook" style="color: black;"></i></a>
-      <a href="https://www.instagram.com/" class="socials"><i class="fa-brands fa-instagram" style="color: black;"></i></a>
-      <a href="https://www.linkedin.com/" class="socials"><i class="fa-brands fa-linkedin" style="color: black;"></i></a>
-    </div>
-    <!-- <div id="conts" class="col-lg-6"> -->
+  </head>
 
-        <!-- <i class="bi bi-envelope"></i> <a href="mailto:contact@example.com"><b>contact@example.com</b></a> -->
-        <!-- <i class="bi bi-phone" ></i> <b>Ph. No.: +91 123456789</b> -->
-    <!-- </div> -->
-  </section>
+  <body>
+    <h3 class="regLogin-heading" style="color: #164B60;">Please Login To Access All Functionalities!</h3>
+    <div class="loginReg-div">
+      <div class="card" style="height: 450px; ">
+        <div class="card-body">
+          <form action="/login" method="POST" class="validated-form" novalidate>
+            <div class="input">
+              <label class="form-label" for="username">Username:</label>
+              <input class="form-control" type="username" id="username" name="username" required style="font-size: medium; height:fit-content;">
 
-  <!-- ======= Header ======= -->
-  <header id="header">
-    <div class="container d-flex align-items-center">
-      <a href="#intro-text" class="logo me-auto"><img src="Hospital-imgs/hospital-logo.jpg" alt="" class="img-fluid"></a>
-      <h2 class="logo me-auto"><a href="/">Medi-Care</a></h2>
-      <!-- Uncomment below if you prefer to use an image logo -->
+              <div class="valid-feedback">
+                Looks good!
+              </div>
+              <label class="form-label" for="password">Password:</label>
+              <input class="form-control" type="password" id="password" name="password" required style="font-size: medium;">
+              <div class="valid-feedback">
+                <h5>Looks good!</h5>
+              </div>
+            </div>
+            <div class="login-btn">
+              <button class="btn btn-success btn-lg" id="button">Login</button>
+            </div>
+          </form>
+          <p style="font-size: 20px">New User?
+            <br><a href="/register">SignUp</a>
+          </p>
+
+        </div>
       </div>
-      <div class="loginReg-div">
-      <h3 class="regLogin-heading" style="color: #164B60;">Please Login To Access All Functionalities!</h3>
-    <form action="/login" method="POST" class="validated-form" novalidate>
-        <div class="login">
-          <table class="regLogin-table">
-            <tr class="trow">
-              <td><label class="form-label" for="username">Enter your username:</label></td>
-              <td><input class="form-control" type="username" id="username" name="username" required></td>
-              <td>
-                <div class="valid-feedback">
-                  Looks good!
-              </div>
-              </td>
-            </tr>
-            <tr class="trow">
-              <td><label class="form-label" for="password">Enter your password:</label></td>
-              <td><input class="form-control" type="password" id="password" name="password" required></td>
-              <td>
-                <div class="valid-feedback">
-                  <h5>Looks good!</h5>
-              </div>
-              </td>
-            </tr>
-          </table>
     </div>
-    <div class="login-btn">
-    <button class="btn btn-success" id="button">Login</button> </div></form>
-    <div class="lg-6">
-    <form class="reg-form" action="/register" method="get">
-      <h4>New User? <button class="btn btn-success" id="button">Sign Up</button></div></h4>
-    
-    </form>
-  
-    
-</div>
-<script src="javascripts/validateform.js"></script>
-</body>
-</html>
+    <script src="javascripts/validateform.js"></script>
+  </body>
+
+  </html>
