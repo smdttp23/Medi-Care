@@ -50,8 +50,8 @@
     <h3 class="regLogin-heading" style="color: #164B60;">Register Today!</h3>
     <form action="/register" method="POST" class="validated-form" novalidate>
         <div class="reg">
-          <table>
-            <tr>
+          <table class="regLogin-table">
+            <tr class="trow">
               <td><label class="form-label" for="username">Enter your username:</label></td>
               <td><input class="form-control" type="username" id="username" name="username" required></td>
               <td>
@@ -60,7 +60,7 @@
                 </div>
               </td>
             </tr>
-            <tr>
+            <tr class="trow">
               <td><label class="form-label" for="email">Enter your Email:</label></td>
               <td><input class="form-control" type="email" id="email" name="email" required></td>
               <td>
@@ -69,7 +69,7 @@
                 </div>
               </td>
             </tr>
-        <tr>
+        <tr class="trow">
           <td><label class="form-label" for="password">Enter your password:</label></td>
           <td><input class="form-control" type="password" id="password" name="password" required></td>
         <td>
@@ -80,11 +80,11 @@
         </tr>
       </table>
     </div>
-    <button class="btn btn-success">Sign Up</button>
+    <button class="btn btn-success" id="reg-btn">Sign Up</button>
     </form>
     <form action="/login" method="get">
       <h4>Already a user?</h4>
-    <button class="btn btn-success">Login</button>
+    <button class="btn btn-success" id="reg-btn">Login</button>
     </form>
 </div>
 <script src="javascripts/validateform.js"></script>

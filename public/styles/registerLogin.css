@@ -4,6 +4,23 @@
 }
 .form-label{
     align-items: center;
-    padding-top: 15px;
+    padding-top: 15%;
     padding-left: 35%;
+}
+.form-control{
+    width: 40%;
+}
+.regLogin-table{
+    align-items: center;
+    padding-top: 15px;
+    padding-left: 90px;
+    font-size: larger;
+  }
+.trow{
+    padding: 10px 5px;
+    align-items: center;
+    padding-left: 50px;
+  }
+#reg-btn{
+    align-items: center;
 }
