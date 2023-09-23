@@ -42,7 +42,7 @@ module.exports.doctors=[
         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/813px-Unknown_person.jpg?20200423155822",
         days:'MON-FRI',
         timings:'10AM-11AM',
-        regno:'1207',
+        regno:'1204',
     },
     {
         name:'Dr. Ramesh Choudhary',
@@ -51,7 +51,7 @@ module.exports.doctors=[
         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/813px-Unknown_person.jpg?20200423155822",
         days:'MON-FRI',
         timings:'10AM-5PM',
-        regno:'1208',
+        regno:'1205',
     },
     {
         name:'Dr. Priya Singh',
@@ -60,7 +60,7 @@ module.exports.doctors=[
         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/813px-Unknown_person.jpg?20200423155822",
         days:'MON-FRI',
         timings:'1PM-5PM',
-        regno:'1209',
+        regno:'1206',
     },
     {
         name:'Dr. Rajesh Verma',
@@ -69,7 +69,7 @@ module.exports.doctors=[
         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/813px-Unknown_person.jpg?20200423155822",
         days:'MON-FRI',
         timings:'12PM-5PM',
-        regno:'1210',
+        regno:'1207',
     },
     {
         name:'Dr. Meena Desai',
@@ -78,7 +78,7 @@ module.exports.doctors=[
         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/813px-Unknown_person.jpg?20200423155822",
         days:'MON-FRI',
         timings:'10AM-11AM',
-        regno:'1211',
+        regno:'1208',
     },
     {
         name:'Dr. Ashish Saxena',
@@ -87,7 +87,7 @@ module.exports.doctors=[
         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/813px-Unknown_person.jpg?20200423155822",
         days:'MON-FRI',
         timings:'10AM-11AM',
-        regno:'1207',
+        regno:'1209',
     },
     {
         name:'Dr. Shalini Khanna',
@@ -96,7 +96,7 @@ module.exports.doctors=[
         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/813px-Unknown_person.jpg?20200423155822",
         days:'MON-FRI',
         timings:'10AM-5PM',
-        regno:'1208',
+        regno:'1210',
     },
     {
         name:'Dr. Kavita Agarwal',
@@ -105,7 +105,7 @@ module.exports.doctors=[
         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/813px-Unknown_person.jpg?20200423155822",
         days:'MON-FRI',
         timings:'1PM-5PM',
-        regno:'1209',
+        regno:'1211',
     },
     {
         name:'Dr. Sachin Kapoor',
@@ -114,7 +114,7 @@ module.exports.doctors=[
         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/813px-Unknown_person.jpg?20200423155822",
         days:'MON-FRI',
         timings:'12PM-5PM',
-        regno:'1210',
+        regno:'1211',
     },
     {
         name:'Dr. Amit Patel',
@@ -123,7 +123,7 @@ module.exports.doctors=[
         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/813px-Unknown_person.jpg?20200423155822",
         days:'MON-FRI',
         timings:'10AM-11AM',
-        regno:'1211',
+        regno:'1212',
     },
     {
         name:'Dr. Swati Sharma',
@@ -132,7 +132,7 @@ module.exports.doctors=[
         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/813px-Unknown_person.jpg?20200423155822",
         days:'MON-FRI',
         timings:'10AM-11AM',
-        regno:'1207',
+        regno:'1213',
     },
     {
         name:'Dr. Arvind Kumar',
@@ -141,7 +141,7 @@ module.exports.doctors=[
         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/813px-Unknown_person.jpg?20200423155822",
         days:'MON-FRI',
         timings:'10AM-5PM',
-        regno:'1208',
+        regno:'1214',
     },
     {
         name:'Dr. Siddharth Kapoor',
@@ -150,7 +150,7 @@ module.exports.doctors=[
         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/813px-Unknown_person.jpg?20200423155822",
         days:'MON-FRI',
         timings:'1PM-5PM',
-        regno:'1209',
+        regno:'1215',
     },
     {
         name:'Dr. Abhishek Sharma',
@@ -159,7 +159,7 @@ module.exports.doctors=[
         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/813px-Unknown_person.jpg?20200423155822",
         days:'MON-FRI',
         timings:'12PM-5PM',
-        regno:'1210',
+        regno:'1216',
     },
     {
         name:'Dr. Priyanka Khanna',
@@ -168,7 +168,7 @@ module.exports.doctors=[
         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/813px-Unknown_person.jpg?20200423155822",
         days:'MON-FRI',
         timings:'10AM-11AM',
-        regno:'1211',
+        regno:'1217',
     },
     {
         name:'Dr. Sangeeta Choudhary',
@@ -177,7 +177,7 @@ module.exports.doctors=[
         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/813px-Unknown_person.jpg?20200423155822",
         days:'MON-FRI',
         timings:'10AM-11AM',
-        regno:'1207',
+        regno:'1218',
     },
     {
         name:'Dr. Rajeev Kumar',
@@ -186,7 +186,7 @@ module.exports.doctors=[
         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/813px-Unknown_person.jpg?20200423155822",
         days:'MON-FRI',
         timings:'10AM-5PM',
-        regno:'1208',
+        regno:'1219',
     },
     {
         name:'Dr. Deepika Verma',
@@ -195,7 +195,7 @@ module.exports.doctors=[
         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/813px-Unknown_person.jpg?20200423155822",
         days:'MON-FRI',
         timings:'1PM-5PM',
-        regno:'1209',
+        regno:'1220',
     },
     {
         name:'Dr. Rohit Joshi',
@@ -204,7 +204,7 @@ module.exports.doctors=[
         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/813px-Unknown_person.jpg?20200423155822",
         days:'MON-FRI',
         timings:'12PM-5PM',
-        regno:'1210',
+        regno:'1221',
     },
     {
         name:'Dr. Neha Bansal',
@@ -213,7 +213,7 @@ module.exports.doctors=[
         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/813px-Unknown_person.jpg?20200423155822",
         days:'MON-FRI',
         timings:'10AM-11AM',
-        regno:'1211',
+        regno:'1222',
     },
     {
         name:'Dr. Aisha Khan',
@@ -222,7 +222,7 @@ module.exports.doctors=[
         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/813px-Unknown_person.jpg?20200423155822",
         days:'MON-FRI',
         timings:'10AM-11AM',
-        regno:'1207',
+        regno:'1223',
     },
     {
         name:'Dr. Arjun Mehta',
@@ -231,7 +231,7 @@ module.exports.doctors=[
         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/813px-Unknown_person.jpg?20200423155822",
         days:'MON-FRI',
         timings:'10AM-5PM',
-        regno:'1208',
+        regno:'1224',
     },
     {
         name:'Dr. Kavya Gupta',
@@ -240,7 +240,7 @@ module.exports.doctors=[
         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/813px-Unknown_person.jpg?20200423155822",
         days:'MON-FRI',
         timings:'1PM-5PM',
-        regno:'1209',
+        regno:'1225',
     },
     {
         name:'Dr. Rajan Patel',
@@ -249,7 +249,7 @@ module.exports.doctors=[
         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/813px-Unknown_person.jpg?20200423155822",
         days:'MON-FRI',
         timings:'12PM-5PM',
-        regno:'1210',
+        regno:'1226',
     },
     {
         name:'Dr. Shreya Verma',
@@ -258,7 +258,7 @@ module.exports.doctors=[
         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/813px-Unknown_person.jpg?20200423155822",
         days:'MON-FRI',
         timings:'10AM-11AM',
-        regno:'1211',
+        regno:'1227',
     },
     {
         name:'Dr. Aarav Sharma',
@@ -267,7 +267,7 @@ module.exports.doctors=[
         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/813px-Unknown_person.jpg?20200423155822",
         days:'MON-FRI',
         timings:'10AM-5PM',
-        regno:'1204',
+        regno:'1228',
     },
     {
         name:'Dr. Naina Patel',
@@ -276,7 +276,7 @@ module.exports.doctors=[
         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/813px-Unknown_person.jpg?20200423155822",
         days:'MON-FRI',
         timings:'9PM-1AM',
-        regno:'1205',
+        regno:'1229',
     },
     {
         name:'Dr. Rohan Singh',
@@ -285,7 +285,7 @@ module.exports.doctors=[
         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/813px-Unknown_person.jpg?20200423155822",
         days:'MON-FRI',
         timings:'10AM-^PM',
-        regno:'1206',
+        regno:'1230',
     },
     {
         name:'Dr. Aman Sharma',
@@ -294,7 +294,7 @@ module.exports.doctors=[
         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/813px-Unknown_person.jpg?20200423155822",
         days:'MON-FRI',
         timings:'10AM-5PM',
-        regno:'1212',
+        regno:'1231',
     },
     {
         name:'Dr. Priya Kapoor',
@@ -303,7 +303,7 @@ module.exports.doctors=[
         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/813px-Unknown_person.jpg?20200423155822",
         days:'MON-FRI',
         timings:'9AM-5PM',
-        regno:'1213',
+        regno:'1232',
     },
     {
         name:'Dr. Rajesh Kumar',
@@ -312,7 +312,7 @@ module.exports.doctors=[
         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/813px-Unknown_person.jpg?20200423155822",
         days:'MON-FRI',
         timings:'11AM-5PM',
-        regno:'1214',
+        regno:'1233',
     },
     {
         name:'Dr. Aishwarya Patel',
@@ -321,7 +321,7 @@ module.exports.doctors=[
         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/813px-Unknown_person.jpg?20200423155822",
         days:'MON-FRI',
         timings:'10AM-11AM',
-        regno:'1207',
+        regno:'1234',
     },
     {
         name:'Dr. Anil Kapoor',
@@ -330,7 +330,7 @@ module.exports.doctors=[
         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/813px-Unknown_person.jpg?20200423155822",
         days:'MON-FRI',
         timings:'10AM-5PM',
-        regno:'1208',
+        regno:'1235',
     },
     {
         name:'Dr. Siddharth Rajan',
@@ -339,7 +339,7 @@ module.exports.doctors=[
         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/813px-Unknown_person.jpg?20200423155822",
         days:'MON-FRI',
         timings:'1PM-5PM',
-        regno:'1209',
+        regno:'1236',
     },
     {
         name:'Dr. Neeta Reddy',
@@ -348,7 +348,7 @@ module.exports.doctors=[
         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/813px-Unknown_person.jpg?20200423155822",
         days:'MON-FRI',
         timings:'12PM-5PM',
-        regno:'1210',
+        regno:'1237',
     },
     {
         name:'Dr. Ramesh Choudhary',
@@ -357,7 +357,53 @@ module.exports.doctors=[
         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/813px-Unknown_person.jpg?20200423155822",
         days:'MON-FRI',
         timings:'10AM-11AM',
-        regno:'1211',
+        regno:'1238',
+    },
+    {
+        name:'Dr. Vikram Mehta',
+        dept:'Orthopaedics',
+        description: 'MBBS',
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/813px-Unknown_person.jpg?20200423155822",
+        days:'MON-FRI',
+        timings:'9AM-11AM',
+        regno:'1239',
+    },
+    {
+        name:'Dr. Nisha Sharma',
+        dept:'Orthopaedics',
+        description: 'MBBS',
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/813px-Unknown_person.jpg?20200423155822",
+        days:'MON-FRI',
+        timings:'9AM-11AM',
+        regno:'1240',
+    },
+    {
+        name:'Dr. Rahul Kapoor',
+        dept:'Orthopaedics',
+        description: 'MBBS',
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/813px-Unknown_person.jpg?20200423155822",
+        days:'MON-FRI',
+        timings:'9AM-11AM',
+        regno:'1241',
+    },
+    {
+        name:'Dr. Sneha Reddy',
+        dept:'Orthopaedics',
+        description: 'MBBS',
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/813px-Unknown_person.jpg?20200423155822",
+        days:'MON-FRI',
+        timings:'9AM-11AM',
+        regno:'1242',
+    },
+    {
+        name:'Dr. Rajesh Kumar',
+        dept:'Orthopaedics',
+        description: 'MBBS',
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/813px-Unknown_person.jpg?20200423155822",
+        days:'MON-FRI',
+        timings:'9AM-11AM',
+        regno:'1243',
     }
+    
 
 ];

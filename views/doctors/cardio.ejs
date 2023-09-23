@@ -89,64 +89,73 @@
       <!-- <a href="#appointment" class="appointment-btn scrollto"><span class="d-none d-md-inline">Make an</span> Appointment</a> -->
     </div>
   </header><!-- End Header -->
-
-  <body>
+  <<<<<<< HEAD <body>
     <div style="display: block;">
       <h2 class="doctor-heading">Best Cardiologists in India</h2>
     </div>
     <section class="articles" id="cardiology">
       <div>
-        <% doctor.forEach(function(doc){%>
-          <% if(doc.dept==='Cardiology' ) {%>
-            <article>
-              <div class="row article-wrapper">
-                <div class="column card-div col-lg-4 mb-4">
+        =======
 
-                  <figure>
-                    <img
-                      src="https://img.freepik.com/free-photo/pleased-young-female-doctor-wearing-medical-robe-stethoscope-around-neck-standing-with-closed-posture_409827-254.jpg"
-                      alt="" />
-                  </figure>
-                  <div class="article-body">
-                    <h2>
-                      <p>
-                        <%= doc.name %>
-                      </p>
-                    </h2>
-                    <p>
-                    <p>ID No. <%= doc.regno %>
-                    </p>
-                    <p>Highest Qualification: <%= doc.description %>
-                    </p>
-                    <p>
-                      <%= doc.dept %>
-                    </p>
-                    <p>Available through: <%= doc.days %>
-                    </p>
-                    <p>Timings: <%= doc.timings %>
-                    </p>
-                    </p>
-                    <% } %>
-                      <!-- <a href="#" class="read-more"> -->
-                      <a href="/login" class="appointment-btn scrollto"><span class="d-none d-md-inline">Make an</span>
-                        Appointment</a></span>
-                  </div>
-                </div>
-              </div>
-            </article>
-      </div>
-      <% }) %>
-    </section>
-    <a href="tel:+911234567890" class="btn-quick-callcta" id="cta_Call_Us_Now">
-      <span class="img">
-        <img data-lazyloaded="1"
-          src="https://cdn.apollohospitals.com/dev-apollohospitals/2023/05/telephone-call-2-1.png"
-          data-src="https://cdn.apollohospitals.com/dev-apollohospitals/2023/05/telephone-call-2-1.png"
-          data-ll-status="loaded" class="entered litespeed-loaded lazy-loaded">
-      </span>
-      <span class="call-txt">Call Us Now</span>
-      <span class="call-num">+91 1234567890</span>
-    </a>
-  </body>
+        <body>
+          <div style="display: block;">
+            <h2 class="doctor-heading">Best Cardiologists in India</h2>
+          </div>
+          <section class="articles" id="doc-list">
+            <div>
+              >>>>>>> f99be81fe31e603be96ce08f7c912ea9b5f4c363
+              <% doctor.forEach(function(doc){%>
+                <% if(doc.dept==='Cardiology' ) {%>
+                  <article>
+                    <div class="row article-wrapper">
+                      <div class="column card-div col-lg-4 mb-4">
+
+                        <figure>
+                          <img
+                            src="https://img.freepik.com/free-photo/pleased-young-female-doctor-wearing-medical-robe-stethoscope-around-neck-standing-with-closed-posture_409827-254.jpg"
+                            alt="" />
+                        </figure>
+                        <div class="article-body">
+                          <h2>
+                            <p>
+                              <%= doc.name %>
+                            </p>
+                          </h2>
+                          <p>
+                          <p>ID No. <%= doc.regno %>
+                          </p>
+                          <p>Highest Qualification: <%= doc.description %>
+                          </p>
+                          <p>
+                            <%= doc.dept %>
+                          </p>
+                          <p>Available through: <%= doc.days %>
+                          </p>
+                          <p>Timings: <%= doc.timings %>
+                          </p>
+                          </p>
+                          <% } %>
+                            <!-- <a href="#" class="read-more"> -->
+                            <a href="/login" class="appointment-btn scrollto"><span class="d-none d-md-inline">Make
+                                an</span>
+                              Appointment</a></span>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+            </div>
+            <% }) %>
+          </section>
+          <a href="tel:+911234567890" class="btn-quick-callcta" id="cta_Call_Us_Now">
+            <span class="img">
+              <img data-lazyloaded="1"
+                src="https://cdn.apollohospitals.com/dev-apollohospitals/2023/05/telephone-call-2-1.png"
+                data-src="https://cdn.apollohospitals.com/dev-apollohospitals/2023/05/telephone-call-2-1.png"
+                data-ll-status="loaded" class="entered litespeed-loaded lazy-loaded">
+            </span>
+            <span class="call-txt">Call Us Now</span>
+            <span class="call-num">+91 1234567890</span>
+          </a>
+        </body>
 
 </html>

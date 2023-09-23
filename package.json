@@ -28,6 +28,7 @@
     "passport-local-mongoose": "^8.0.0",
     "path": "^0.12.7",
     "pdfkit": "^0.13.0",
+    "puppeteer": "^21.3.4",
     "uuid": "^9.0.0"
   },
   "description": ""
