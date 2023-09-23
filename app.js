@@ -103,7 +103,41 @@ app.get('/doctors/Pediatrics', async (req, res) => {
   res.render('doctors/pedia', { doctor })
 
 })
+app.get('/doctors/Dentistry', async (req, res) => {
+  const doctor = await doc.find({ dept: 'Dentistry' });
+  res.render('doctors/dentistry', { doctor })
 
+})
+app.get('/doctors/Dermatology', async (req, res) => {
+  const doctor = await doc.find({ dept: 'Dermatology' });
+  res.render('doctors/Derm', { doctor })
+
+})
+app.get('/doctors/Hepatology', async (req, res) => {
+  const doctor = await doc.find({ dept: 'Hepatology' });
+  res.render('doctors/Hepa', { doctor })
+
+})
+app.get('/doctors/Orthopaedic', async (req, res) => {
+  const doctor = await doc.find({ dept: 'Orthopaedics' });
+  res.render('doctors/Ortho', { doctor })
+
+})
+app.get('/doctors/Gynecology', async (req, res) => {
+  const doctor = await doc.find({ dept: 'Gynecology' });
+  res.render('doctors/Gynec', { doctor })
+
+})
+app.get('/doctors/Opthalmology', async (req, res) => {
+  const doctor = await doc.find({ dept: 'Opthalmology' });
+  res.render('doctors/Opthal', { doctor })
+
+})
+app.get('/doctors/Neurology', async (req, res) => {
+  const doctor = await doc.find({ dept: 'Neurology' });
+  res.render('doctors/Neuro', { doctor })
+
+})
 app.get("/appointment", isLoggedIn, async (req, res) => {
   const doctor = await doc.find({});
   res.render('appointment', { doctor });
