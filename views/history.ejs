@@ -82,8 +82,8 @@
             <%= appointment.Select2 %>
           </td>
           <td>
-            <form action="/pdf" method="post">
-              <button type="submit">Generate PDF</button>
+            <form action="/appointment/page/<%= appointment._id %>" method="get">
+              <button type="submit">View Appointment Details</button>
           </form>
           </td>
         </tr>
@@ -94,13 +94,13 @@
       <div><form action="/logout" method="GET"><button>Sign Out</button></form></div>
     </div>
   </section>
-    <!-- <a href="/" class="btn btn-primary">Home</a>
+    <a href="/" class="btn btn-primary">Home</a>
     <a href="tel:+911234567890" class="btn-quick-callcta" id="cta_Call_Us_Now">
         <span class="img">
           <img data-lazyloaded="1" src="https://cdn.apollohospitals.com/dev-apollohospitals/2023/05/telephone-call-2-1.png" data-src="https://cdn.apollohospitals.com/dev-apollohospitals/2023/05/telephone-call-2-1.png" data-ll-status="loaded" class="entered litespeed-loaded lazy-loaded">
         </span>
         <span class="call-txt">Call Us Now</span>
         <span class="call-num">+91 1234567890</span>
-      </a> -->
+      </a>
 </body>
 </html>

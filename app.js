@@ -20,6 +20,8 @@ const { isLoggedIn } = require('./middleware');
 require('dotenv').config({ path: path.resolve(__dirname, "./.env") });
 const PDFDocument = require('pdfkit');
 const fs = require('fs');
+const puppeteer = require('puppeteer');
+
 // Initalise a new express application
 const app = express();
 const port = 3000;
@@ -93,6 +95,7 @@ app.get('/api/doctors', async (req, res) => {
     res.status(500).json({ error: 'An error occurred while fetching doctors' });
   }
 });
+
 app.get('/doctors/Cardiology', async (req, res) => {
   const doctor = await doc.find({ dept: 'Cardiology' });
   res.render('doctors/cardio', { doctor })
@@ -138,6 +141,7 @@ app.get('/doctors/Neurology', async (req, res) => {
   res.render('doctors/Neuro', { doctor })
 
 })
+
 app.get("/appointment", isLoggedIn, async (req, res) => {
   const doctor = await doc.find({});
   res.render('appointment', { doctor });
@@ -155,7 +159,6 @@ app.get('/appointment/history', isLoggedIn, async (req, res) => {
     console.log('Department:', appointment.Select1);
     console.log('Doctor Consulted:', appointment.Select2);
     console.log('Appointment Time:', appointment.apptTime);
-    // Display or process appointment details as needed
   })
   res.render('history', {bookings});
 });
@@ -174,22 +177,51 @@ app.post("/appointment/history", isLoggedIn, async (req, res) => {
   res.send('<script>alert("Appointment Booked Successfully! Please check your Medical Records for further updates"); window.location.href = "/";</script>');
 });
 
-app.post('/pdf', async (req, res) => {
-  const docuData = await Appt.find();
-
-  // Create a new PDF document
+app.post('/pdf/:id', async (req, res) => {
+  const apptID = req.params.id;
+  console.log(apptID);
+  const docuData = await Appt.findById({apptID}); 
   const docu = new PDFDocument();
   docu.pipe(fs.createWriteStream('output.pdf'));
-
-  // Add content to the PDF (replace with your specific content)
-  docuData.forEach((appointment) => {
-    docu.text(`Name: ${appointment.name}`);
-  });
-
+    docu.text(`Name: ${docuData.name}`);
+    docu.text(`Department: ${docuData.Select1}`);
+    docu.text(`Doctor name: ${docuData.Select2}`);
+    docu.text(`Date and Timings of the appointment: ${docuData.apptTime}`);
   // End the PDF document
   docu.end();
 });
 
+app.get('/appointment/page/:id', async(req, res)=>{
+  const appointID=req.params.id;
+  const docuData = await Appt.findById(appointID);
+  res.render('page', {docuData});
+})
+app.get('/appointment/page-generate/:id', async(req, res)=>{
+  try{
+    const browser = await puppeteer.launch();
+    const newPage = await browser.newPage();
+    const id = req.params.id;
+    await newPage.goto(`http://localhost:3000`+`/appointment/page/${id}`, {
+      waitUntil: "networkidle2"
+    });
+    newPage.setViewport({width: 1680, height: 1050});
+    const todayDate = new Date();
+    const pdfn = await newPage.pdf({
+      path: `${path.join(__dirname, '../public/files', todayDate.getTime()+".pdf")}`,
+      format: "A4"
+    });
+    await browser.close();
+    const pdfURL = path.join(__dirname, '../public/files', todayDate.getTime()+".pdf");
+    res.set({
+      "Content-Type": "application/pdf",
+      "Content-Length": pdfn.length
+    });
+    res.sendFile(pdfURL);
+
+  }catch(error){
+    console.log(error.message);
+  }
+})
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
