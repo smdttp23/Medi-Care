@@ -32,6 +32,7 @@
     <!-- <link rel="stylesheet" href="styles/doc.css"> -->
     <title>Make an appointment</title>
 </head>
+
 <body>
     <!-- ======= Top Bar ======= -->
     <section id="topbar" class="row">
@@ -61,143 +62,143 @@
             <!-- Uncomment below if you prefer to use an image logo -->
         </div>
     </header>
-        <section>
-            <h1 class="top-heading">Doctor Appointment Request Form</h1>
-            <div class="heading">
-                <h3 class="top-heading" style="color: #164B60;">Fill the details below and we will book an appointment
-                    for you!</h3>
-            </div>
+    <section>
+        <h1 class="top-heading">Doctor Appointment Request Form</h1>
+        <div class="heading">
+            <h3 class="top-heading" style="color: #164B60;">Fill the details below and we will book an appointment
+                for you!</h3>
+        </div>
 
-            <div class="dept">
-                <form method="post" action="/appointment/history">
-                    <table id="appt-table" class="table">
-                        <tr class="trow">
-                            <td>
-                                <label for="name">Enter patient name: </label>
-                            </td>
-                            <td>
-                                <h4>
-                                    <input class="form-control" type="text" id="name" name="name" required>
-                                </h4>
-                            </td>
-                        </tr>
-                        <tr class="trow">
-                            <td>
-                                <label for="name">Phone Number (with Country Code): </label>
-                            </td>
-                            <td>
-                                <h4>
-                                    <input class="form-control" type="number" id="phno" name="phno" required>
-                                </h4>
-                            </td>
-                        </tr>
-                        <tr class="trow">
-                            <td>
-                                <label for="name">Enter patient age: </label>
-                            </td>
-                            <td>
-                                <h4>
-                                    <input class="form-control" type="number" id="age" name="age" required>
-                                </h4>
-                            </td>
-                            <td>
-                                <label for="name">Enter patient height (in cm): </label>
-                            </td>
-                            <td>
-                                <h4>
-                                    <input class="form-control" type="number" id="height" name="height" required>
-                                </h4>
-                            </td>
-                            <td>
-                                <label for="name">Enter patient weight (in kg): </label>
-                            </td>
-                            <td>
-                                <h4>
-                                    <input class="form-control" type="number" id="weight" name="weight" required>
-                                </h4>
-                            </td>
-                        </tr>
-                        
-                        <tr class="trow">
-                            <td><label for="">Specialization: </label></td>
-                            <td><select name="Select1" id="Select1" onchange="populate(this.id, 'Select2')">
-                                    <option value="">--Choose department--</option>
-                                    <option value="Cardiology">Cardiology</option>
-                                    <option value="Pediatrics">Pediatrics</option>
-                                    <option value="Neurology">Neurology</option>
-                                    <option value="Hepatology">Hepatology</option>
-                                    <option value="Opthalmology">Opthalmology</option>
-                                    <option value="Gynecology">Gynecology</option>
-                                    <option value="Dermatology">Dermatology</option>
-                                    <option value="Orthopaedic">Orthopaedics</option>
-                                    <option value="Dentistry">Dentistry</option>
+        <div class="dept">
+            <form method="post" action="/appointment/history">
+                <table id="appt-table" class="table">
+                    <tr class="trow">
+                        <td>
+                            <label for="name">Enter patient name: </label>
+                        </td>
+                        <td>
+                            <h4>
+                                <input class="form-control" type="text" id="name" name="name" required>
+                            </h4>
+                        </td>
+                    </tr>
+                    <tr class="trow">
+                        <td>
+                            <label for="name">Phone Number (with Country Code): </label>
+                        </td>
+                        <td>
+                            <h4>
+                                <input class="form-control" type="number" id="phno" name="phno" required>
+                            </h4>
+                        </td>
+                    </tr>
+                    <tr class="trow">
+                        <td>
+                            <label for="name">Enter patient age: </label>
+                        </td>
+                        <td>
+                            <h4>
+                                <input class="form-control" type="number" id="age" name="age" required>
+                            </h4>
+                        </td>
+                        <td>
+                            <label for="name">Enter patient height (in cm): </label>
+                        </td>
+                        <td>
+                            <h4>
+                                <input class="form-control" type="number" id="height" name="height" required>
+                            </h4>
+                        </td>
+                        <td>
+                            <label for="name">Enter patient weight (in kg): </label>
+                        </td>
+                        <td>
+                            <h4>
+                                <input class="form-control" type="number" id="weight" name="weight" required>
+                            </h4>
+                        </td>
+                    </tr>
 
-                                </select></td>
-                        </tr>
-                        <tr>
-                            <td><label for="Select2">Doctors Available: </label></td>
-                            <td><select name="Select2" id="Select2">
-                                    <% doctor.forEach(function(doc){%>
-                                        <option value=" <%=doc.name %>" class="<%= doc.dept %>">
-                                            <%= doc.name %>
-                                        </option>
-                                        <% }) %>
-                                </select></td>
-                        </tr>
-                        <tr class="trow">
-                            <td><label>Select Date and your preffered Time Slot: </label></td>
-                            <td>
-                                <h4>
-                                    <input type="datetime-local" name="timeSlot" id="Test_DatetimeLocal">
-                                </h4>
-                            </td>
-                        </tr>
-                        <!-- <tr class="trow">
+                    <tr class="trow">
+                        <td><label for="">Specialization: </label></td>
+                        <td><select name="Select1" id="Select1" onchange="populate(this.id, 'Select2')">
+                                <option value="">--Choose department--</option>
+                                <option value="Cardiology">Cardiology</option>
+                                <option value="Pediatrics">Pediatrics</option>
+                                <option value="Neurology">Neurology</option>
+                                <option value="Hepatology">Hepatology</option>
+                                <option value="Opthalmology">Opthalmology</option>
+                                <option value="Gynecology">Gynecology</option>
+                                <option value="Dermatology">Dermatology</option>
+                                <option value="Orthopaedic">Orthopaedics</option>
+                                <option value="Dentistry">Dentistry</option>
+
+                            </select></td>
+                    </tr>
+                    <tr>
+                        <td><label for="Select2">Doctors Available: </label></td>
+                        <td><select name="Select2" id="Select2">
+                                <% doctor.forEach(function(doc){%>
+                                    <option value=" <%=doc.name %>" class="<%= doc.dept %>">
+                                        <%= doc.name %>
+                                    </option>
+                                    <% }) %>
+                            </select></td>
+                    </tr>
+                    <tr class="trow">
+                        <td><label>Select Date and your preffered Time Slot: </label></td>
+                        <td>
+                            <h4>
+                                <input type="datetime-local" name="timeSlot" id="Test_DatetimeLocal">
+                            </h4>
+                        </td>
+                    </tr>
+                    <!-- <tr class="trow">
                 <td>Select Time Slot: </td>
                 <td><select id="Select1">
                     
                    <option value="timings"><p>Timings: <
                 </select></td>
             </tr> -->
-                    </table>
-                    <div class="lg-6">
-                        <button class="history-btn">Create Appointment!</button>
-                    </div>
-                    <div class="lg-6">
-                        <form class="history-form" action="/appointment/history" method="get">
-                            <button class="history-btn">View medical history</button>
-                        </form>
-                    </div>
-                </form>
-            </div>
-        </section>
+                </table>
+                <div class="lg-6">
+                    <button class="history-btn">Create Appointment!</button>
+                </div>
+                <div class="lg-6">
+                </div>
+            </form>
+            <form class="history-form" action="/appointment/history" method="get">
+                <button class="history-btn">View medical history</button>
+            </form>
+        </div>
+    </section>
 
-        <script>
-            function populate(sourceSelectId, targetSelectId) {
-                var selectedOptionValue = $("#" + sourceSelectId).val();
-                var targetSelect = $("#" + targetSelectId);
-                $.ajax({
-                    url: '/api/doctors?department=' + selectedOptionValue,
-                    method: 'GET',
-                    // Additional parameters or headers as needed
-                    success: function (data) {
-                        // Clear existing options in the target select
-                        targetSelect.empty();
+    <script>
+        function populate(sourceSelectId, targetSelectId) {
+            var selectedOptionValue = $("#" + sourceSelectId).val();
+            var targetSelect = $("#" + targetSelectId);
+            $.ajax({
+                url: '/api/doctors?department=' + selectedOptionValue,
+                method: 'GET',
+                // Additional parameters or headers as needed
+                success: function (data) {
+                    // Clear existing options in the target select
+                    targetSelect.empty();
 
-                        // Loop through the data from the API and create options
-                        $.each(data, function (index, item) {
-                            targetSelect.append($('<option>', {
-                                value: item.name,
-                                text: item.name
-                            }));
-                        });
-                    },
-                    error: function (error) {
-                        console.error("Error fetching data from the API: " + error);
-                    }
-                });
-            }
-        </script>
-    </body>
+                    // Loop through the data from the API and create options
+                    $.each(data, function (index, item) {
+                        targetSelect.append($('<option>', {
+                            value: item.name,
+                            text: item.name
+                        }));
+                    });
+                },
+                error: function (error) {
+                    console.error("Error fetching data from the API: " + error);
+                }
+            });
+        }
+    </script>
+</body>
 
 </html>
