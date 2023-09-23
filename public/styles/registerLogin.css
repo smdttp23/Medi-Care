@@ -1,37 +1,80 @@
-.loginReg-div{
-    offset: 6;
+body {
+  background-image: url(../Hospital-imgs/blurred-abstract-background-interior-view-looking-out-toward-empty-office-lobby-entrance-doors-glass-curtain-wall-with-frame.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
-.regLogin-heading{
-    padding: 10px 5px;
-    text-align: center;
+
+
+
+.regLogin-heading {
+  padding: 10px 5px;
+  text-align: center;
 }
-.form-label{
-    align-items: center;
-    padding-top: 5%;
-    padding-left: 300px;
+
+.form-label {
+  margin-top: 10%;
+  margin-bottom: 5px;
+  font-size: 2rem;
+  display: flex;
+  justify-content: left;
 }
-.regLogin-table{
-    align-items: center;
-    padding-top: 15px;
-    padding-left: 90px;
-    font-size: larger;
-  }
-.trow{
-    padding: 10px 5px;
-    align-items: center;
-    padding-left: 50px;
-  }
-  .reg-form{
-    align-items: center;
-    padding-top: 15px;
-    padding-left: 35%;
-  }
-  .login-btn{
-    align-items: center;
-    padding-top: 15px;
-    padding-left: 35%;
-  }
-  #button{
-    padding-left: 5%;
-    padding-right: 5%;
-  }
+
+.login {
+  display: flex;
+  justify-content: left;
+}
+
+.loginReg-div {
+  display: flex;
+  justify-content: right;
+}
+
+.regLogin-table {
+  align-items: center;
+  padding-top: 15px;
+  padding-left: 90px;
+  font-size: larger;
+}
+
+.trow {
+  padding: 10px 5px;
+  align-items: center;
+  padding-left: 50px;
+}
+
+/* .reg-form {
+  align-items: center;
+  padding-top: 15px;
+  padding-left: 35%;
+}
+
+.login-btn {
+  align-items: center;
+  padding-top: 15px;
+  padding-left: 35%;
+} */
+.login-btn {
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+
+.card {
+  margin-right: 120px;
+  margin-top: 55px;
+  border-radius: 10px;
+  background-color: white;
+  background: transparent;
+  backdrop-filter: blur(20px);
+  --webkit-background-size: cover;
+}
+
+.btn {
+  margin-top: 15px;
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
+#button {
+  padding-left: 5%;
+  padding-right: 5%;
+}
