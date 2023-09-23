@@ -18,7 +18,8 @@ const userRoute = require('./routes/users');
 const flash = require('connect-flash');
 const { isLoggedIn } = require('./middleware');
 require('dotenv').config({ path: path.resolve(__dirname, "./.env") });
-
+const PDFDocument = require('pdfkit');
+const fs = require('fs');
 // Initalise a new express application
 const app = express();
 const port = 3000;
@@ -111,7 +112,7 @@ app.get('/appointment/history', isLoggedIn, async (req, res) => {
   const userEmail = req.user.email;
   console.log(userEmail);
   const bookings = await Appt.find({ userEmail: userEmail });
-  bookings.forEach((appointment) => {
+  bookings.forEach((appointment)=>{
     console.log('Name:', appointment.name);
     console.log('Phone Number:', appointment.phno);
     console.log('Age:', appointment.age);
@@ -137,6 +138,22 @@ app.post("/appointment/history", isLoggedIn, async (req, res) => {
     apptTime: req.body.timeSlot
   }).save();
   res.send('<script>alert("Appointment Booked Successfully! Please check your Medical Records for further updates"); window.location.href = "/";</script>');
+});
+
+app.post('/pdf', async (req, res) => {
+  const docuData = await Appt.find();
+
+  // Create a new PDF document
+  const docu = new PDFDocument();
+  docu.pipe(fs.createWriteStream('output.pdf'));
+
+  // Add content to the PDF (replace with your specific content)
+  docuData.forEach((appointment) => {
+    docu.text(`Name: ${appointment.name}`);
+  });
+
+  // End the PDF document
+  docu.end();
 });
 
 app.listen(port, () => {

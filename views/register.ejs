@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/registerLogin.css">
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -46,28 +47,38 @@
       <!-- Uncomment below if you prefer to use an image logo -->
       </div>
       <div> 
-    <h3>Register Today!</h3>
+    <h3 class="regLogin-heading" style="color: #164B60;">Register Today!</h3>
     <form action="/register" method="POST" class="validated-form" novalidate>
-        <div class="mb-3">
-            <label class="form-label" for="username">Enter your username:</label>
-            <input class="form-control" type="username" id="username" name="username" required>
-            <div class="valid-feedback">
-                Looks good!
-            </div>
-        </div>
-        <div class="mb-3">
-        <label class="form-label" for="email">Enter your Email:</label>
-        <input class="form-control" type="email" id="email" name="email" required>
-        <div class="valid-feedback">
+        <div class="reg">
+          <table>
+            <tr>
+              <td><label class="form-label" for="username">Enter your username:</label></td>
+              <td><input class="form-control" type="username" id="username" name="username" required></td>
+              <td>
+                <div class="valid-feedback">
+                  Looks good!
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td><label class="form-label" for="email">Enter your Email:</label></td>
+              <td><input class="form-control" type="email" id="email" name="email" required></td>
+              <td>
+                <div class="valid-feedback">
+                  Looks good!
+                </div>
+              </td>
+            </tr>
+        <tr>
+          <td><label class="form-label" for="password">Enter your password:</label></td>
+          <td><input class="form-control" type="password" id="password" name="password" required></td>
+        <td>
+          <div class="valid-feedback">
             Looks good!
-        </div>
-    </div>
-    <div class="mb-3">
-        <label class="form-label" for="password">Enter your password:</label>
-        <input class="form-control" type="password" id="password" name="password" required>
-        <div class="valid-feedback">
-            <h5>Looks good!</h5>
-        </div>
+          </div>
+        </td>
+        </tr>
+      </table>
     </div>
     <button class="btn btn-success">Sign Up</button>
     </form>
