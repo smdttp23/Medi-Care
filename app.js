@@ -21,7 +21,7 @@ require('dotenv').config({ path: path.resolve(__dirname, "./.env") });
 const PDFDocument = require('pdfkit');
 const fs = require('fs');
 const puppeteer = require('puppeteer');
-
+const ejs = require('ejs')
 // Initalise a new express application
 const app = express();
 const port = 3000;
@@ -150,7 +150,7 @@ app.get('/appointment/history', isLoggedIn, async (req, res) => {
   const userEmail = req.user.email;
   console.log(userEmail);
   const bookings = await Appt.find({ userEmail: userEmail });
-  bookings.forEach((appointment)=>{
+  bookings.forEach((appointment) => {
     console.log('Name:', appointment.name);
     console.log('Phone Number:', appointment.phno);
     console.log('Age:', appointment.age);
@@ -160,7 +160,7 @@ app.get('/appointment/history', isLoggedIn, async (req, res) => {
     console.log('Doctor Consulted:', appointment.Select2);
     console.log('Appointment Time:', appointment.apptTime);
   })
-  res.render('history', {bookings});
+  res.render('history', { bookings });
 });
 app.post("/appointment/history", isLoggedIn, async (req, res) => {
   const appointment = await new Appt({
@@ -180,45 +180,60 @@ app.post("/appointment/history", isLoggedIn, async (req, res) => {
 app.post('/pdf/:id', async (req, res) => {
   const apptID = req.params.id;
   console.log(apptID);
-  const docuData = await Appt.findById({apptID}); 
+  const docuData = await Appt.findById({ apptID });
   const docu = new PDFDocument();
   docu.pipe(fs.createWriteStream('output.pdf'));
-    docu.text(`Name: ${docuData.name}`);
-    docu.text(`Department: ${docuData.Select1}`);
-    docu.text(`Doctor name: ${docuData.Select2}`);
-    docu.text(`Date and Timings of the appointment: ${docuData.apptTime}`);
+  docu.text(`Name: ${docuData.name}`);
+  docu.text(`Department: ${docuData.Select1}`);
+  docu.text(`Doctor name: ${docuData.Select2}`);
+  docu.text(`Date and Timings of the appointment: ${docuData.apptTime}`);
   // End the PDF document
   docu.end();
 });
 
-app.get('/appointment/page/:id', async(req, res)=>{
-  const appointID=req.params.id;
+app.get('/appointment/page/:id', async (req, res) => {
+  const appointID = req.params.id;
   const docuData = await Appt.findById(appointID);
-  res.render('page', {docuData});
+  res.render('page', { docuData });
 })
-app.get('/appointment/page-generate/:id', async(req, res)=>{
-  try{
-    const browser = await puppeteer.launch();
-    const newPage = await browser.newPage();
+app.get('/appointment/page-generate/:id', async (req, res) => {
+  try {
     const id = req.params.id;
-    await newPage.goto(`http://localhost:3000`+`/appointment/page/${id}`, {
-      waitUntil: "networkidle2"
-    });
-    newPage.setViewport({width: 1680, height: 1050});
-    const todayDate = new Date();
-    const pdfn = await newPage.pdf({
-      path: `${path.join(__dirname, '../public/files', todayDate.getTime()+".pdf")}`,
-      format: "A4"
+    const docuData = await Appt.findById(id);
+    const html = await ejs.renderFile('views/page.ejs', { docuData });
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+    await page.setContent(html);
+    // Generate PDF 
+    const pdfn = await page.pdf({
+      path: path.join(__dirname + `/public/file/${docuData.name}_appt.pdf`), // Output PDF file path
+      format: 'A4'
     });
     await browser.close();
-    const pdfURL = path.join(__dirname, '../public/files', todayDate.getTime()+".pdf");
+    const pdfURL = path.join(__dirname + `/public/file/${docuData.name}_appt.pdf`);
+    // const browser = await puppeteer.launch();
+    // const newPage = await browser.newPage();
+    // const id = req.params.id;
+    // const ejsTemplate = fs.readFileSync('views/page.ejs', 'utf-8');
+    // await newPage.setContent(ejsTemplate);
+    // await newPage.goto(`http://localhost:3000/appointment/page/${id}`, {
+    //   waitUntil: "networkidle2"
+    // });
+    // newPage.setViewport({ width: 1680, height: 1050 });
+    // const todayDate = new Date();
+    // const pdfn = await newPage.pdf({
+    //   path: `${path.join(__dirname, '../public/files', todayDate.getTime() + ".pdf")}`,
+    //   format: "A4"
+    // });
+    // await browser.close();
+    // const pdfURL = path.join(__dirname, '../public/files', todayDate.getTime() + ".pdf");
     res.set({
       "Content-Type": "application/pdf",
       "Content-Length": pdfn.length
     });
     res.sendFile(pdfURL);
 
-  }catch(error){
+  } catch (error) {
     console.log(error.message);
   }
 })
