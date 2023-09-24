@@ -7,9 +7,6 @@
   <!-- fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Fira+Sans&family=Montserrat:wght@600&family=Tilt+Prism&family=Ubuntu&display=swap"
-    rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Tilt+Prism&family=Ubuntu&display=swap"
@@ -17,7 +14,7 @@
   <!-- icons -->
   <script src="https://kit.fontawesome.com/6d5b2cec0a.js" crossorigin="anonymous"></script>
   <!-- bootstrap and js -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
   <!-- <script src="../seeds/main.js"></script> -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -26,22 +23,71 @@
     crossorigin="anonymous"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylessheet" href="css/bootstrap.min.css">
+    <link href="/styles/main.css" media="all" rel="stylesheet">
+    <link href="/styles/page.css" media="all" rel="stylesheet">
+    <style>
+      @media print {
+          body {
+              -webkit-print-color-adjust: exact;
+              -moz-print-color-adjust: exact;
+              -ms-print-color-adjust: exact;
+              print-color-adjust: exact;
+          }
+      }
+  </style>
   <title>Appointment Confirmation Ticket</title>
 </head>
 
 <body>
-  <%= docuData.name %>
-    <%= docuData.Select1 %>
-      <%= docuData.Select2 %>
-        <%= docuData.apptTime %>
-          <form action="/appointment/page-generate/<%= docuData._id %>" method="get" id="pdf"><button>click kr</button>
-          </form>
+  <header id="header">
+    <div class="container d-flex align-items-center">
+      <a href="#intro-text" class="logo me-auto"><img src="Hospital-imgs/hospital-logo.jpg" alt="" class="img-fluid"></a>
+      <h2 class="logo me-auto"><a href="/">Medi-Care</a> <h4 class="phno">Call us: +911234567890</h4></h2>
+    </div>
+  </header>
+  <section>
+    <h2 class="page-heading">Appointment Confirmation Form <h4 class="timing"><%= docuData.apptTime %></h4></h2>
+  </section>
+  <section class="page-content">
+    <h2 class="h2">Patient Medical Record</h2>
+    <table class="page-table">
+      <tr class="trow">
+        <td class="tdata">Patient Name: <%= docuData.name %></td>
+        <td class="tdata">UHID: <%= docuData._id %></td>
+      </tr>
+      <tr class="trow">
+        <td class="tdata">Age/Gender: <%= docuData.age %>/<%= docuData.gender %></td>
+      </tr>
+      <tr class="trow">
+        <td class="tdata">Consultant: <%= docuData.Select2 %></td>
+        <td class="tdata">Department of Consultancy: <%= docuData.Select1 %></td>
+      </tr>
+      <tr class="trow">
+        <td class="tdata">Phone No.: <%= docuData.phno %></td>
+        <td class="tdata">Appointment Date and Timing: <%= docuData.apptTime %></td>
+      </tr>
+    </table>
+    <hr>
+    <section class="prescription">
+      <h2>Doctor Prescription:</h2>
+    </section>
+    <hr>
+    <p><h3 class="sign">Doctor Signature: </h3><h3 class="stamp">Hospital stamp</h3></p>
+  </section>
+
+  <form action="/appointment/page-generate/<%= docuData._id %>" method="get" id="pdf"><button class="btn btn-success btn-larger">Click to Download as PDF</button>
+  </form>
           <script>
             const element = document.getElementById("#pdf")
             document.querySelector('.button').addEventListener('onClick', () => {
               element.style.display = none;
             })
           </script>
+          <footer>
+            <p><h3>Copyright © <%= new Date().getFullYear() %></h3>
+            </p>
+          </footer>
 </body>
 
 </html>

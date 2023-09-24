@@ -16,7 +16,7 @@ db.once("open", () => {
 });
 const seedDB = async () => {
     await doc.deleteMany({});
-    for (let i = 0; i < 40; i++) {
+    for (let i = 0; i < 45; i++) {
         const phnnum = Math.floor(Math.random() * 10000000);
         // console.log(doctors[i].name);
         const doctor = new doc({

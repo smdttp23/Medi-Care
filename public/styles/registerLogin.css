@@ -12,9 +12,9 @@ body {
 }
 
 .form-label {
-  margin-top: 10%;
+  margin-top: 1%;
   margin-bottom: 5px;
-  font-size: 2rem;
+  font-size: 1.5rem;
   display: flex;
   justify-content: left;
 }
@@ -60,7 +60,7 @@ body {
 
 .card {
   margin-right: 120px;
-  margin-top: 55px;
+  margin-top: 5px;
   border-radius: 10px;
   background-color: white;
   background: transparent;

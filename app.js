@@ -121,7 +121,7 @@ app.get('/doctors/Hepatology', async (req, res) => {
   res.render('doctors/Hepa', { doctor })
 
 })
-app.get('/doctors/Orthopaedic', async (req, res) => {
+app.get('/doctors/Orthopaedics', async (req, res) => {
   const doctor = await doc.find({ dept: 'Orthopaedics' });
   res.render('doctors/Ortho', { doctor })
 
@@ -154,7 +154,7 @@ app.get('/appointment/history', isLoggedIn, async (req, res) => {
     console.log('Name:', appointment.name);
     console.log('Phone Number:', appointment.phno);
     console.log('Age:', appointment.age);
-    console.log('Height:', appointment.height);
+    console.log('Gender:', appointment.gender);
     console.log('Weight:', appointment.weight);
     console.log('Department:', appointment.Select1);
     console.log('Doctor Consulted:', appointment.Select2);
@@ -168,7 +168,7 @@ app.post("/appointment/history", isLoggedIn, async (req, res) => {
     phno: req.body.phno,
     age: req.body.age,
     weight: req.body.weight,
-    height: req.body.height,
+    gender: req.body.gender,
     userEmail: req.user.email,
     Select1: req.body.Select1,
     Select2: req.body.Select2,
@@ -177,19 +177,19 @@ app.post("/appointment/history", isLoggedIn, async (req, res) => {
   res.send('<script>alert("Appointment Booked Successfully! Please check your Medical Records for further updates"); window.location.href = "/";</script>');
 });
 
-app.post('/pdf/:id', async (req, res) => {
-  const apptID = req.params.id;
-  console.log(apptID);
-  const docuData = await Appt.findById({ apptID });
-  const docu = new PDFDocument();
-  docu.pipe(fs.createWriteStream('output.pdf'));
-  docu.text(`Name: ${docuData.name}`);
-  docu.text(`Department: ${docuData.Select1}`);
-  docu.text(`Doctor name: ${docuData.Select2}`);
-  docu.text(`Date and Timings of the appointment: ${docuData.apptTime}`);
-  // End the PDF document
-  docu.end();
-});
+// app.post('/pdf/:id', async (req, res) => {
+//   const apptID = req.params.id;
+//   console.log(apptID);
+//   const docuData = await Appt.findById({ apptID });
+//   const docu = new PDFDocument();
+//   docu.pipe(fs.createWriteStream('output.pdf'));
+//   docu.text(`Name: ${docuData.name}`);
+//   docu.text(`Department: ${docuData.Select1}`);
+//   docu.text(`Doctor name: ${docuData.Select2}`);
+//   docu.text(`Date and Timings of the appointment: ${docuData.apptTime}`);
+//   // End the PDF document
+//   docu.end();
+// });
 
 app.get('/appointment/page/:id', async (req, res) => {
   const appointID = req.params.id;
@@ -207,6 +207,7 @@ app.get('/appointment/page-generate/:id', async (req, res) => {
     // Generate PDF 
     const pdfn = await page.pdf({
       path: path.join(__dirname + `/public/file/${docuData.name}_appt.pdf`), // Output PDF file path
+      printBackground: true,
       format: 'A4'
     });
     await browser.close();

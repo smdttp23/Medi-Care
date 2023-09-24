@@ -3,8 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/registerLogin.css">
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,7 +19,9 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <title>Medi-Care Register</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/registerLogin.css">  
+  <title>Medi-Care Register</title>
 </head>
 <body>
         <!-- ======= Top Bar ======= -->
@@ -46,47 +46,45 @@
       <h2 class="logo me-auto"><a href="/">Medi-Care</a></h2>
       <!-- Uncomment below if you prefer to use an image logo -->
       </div>
-      <div class="loginReg-div"> 
-    <h3 class="regLogin-heading" style="color: #164B60;">Register Today!</h3>
-    <form action="/register" method="POST" class="validated-form" novalidate>
-        <div class="reg">
-          <table class="regLogin-table">
-            <tr class="trow">
-              <td><label class="form-label" for="username">Enter your username:</label></td>
-              <td><input class="form-control" type="username" id="username" name="username" required></td>
-              <td>
-                <div class="valid-feedback">
-                  Looks good!
+      </header>
+      <body>
+        <h3 class="regLogin-heading" style="color: #164B60;">Register Today!</h3>
+        <div class="loginReg-div">
+          <div class="card" style="height: 450px; ">
+            <div class="card-body">
+              <form action="/register" method="POST" class="validated-form" novalidate>
+                <div class="input">
+                  <label class="form-label" for="username">Enter your username: </label>
+                  <input class="form-control" type="username" id="username" name="username" required
+                    style="font-size: medium; height:fit-content;">
+    
+                  <div class="valid-feedback">
+                    <h5>Looks good!</h5>
+                  </div>
+                  <label class="form-label" for="password">Enter your Email: </label>
+                  <input class="form-control" type="email" id="email" name="email" required
+                    style="font-size: medium;">
+                  <div class="valid-feedback">
+                    <h5>Looks good!</h5>
+                  </div>
+                  <label class="form-label" for="password">Enter your password: </label>
+                  <input class="form-control" type="password" id="password" name="password" required
+                    style="font-size: medium;">
+                  <div class="valid-feedback">
+                    <h5>Looks good!</h5>
+                  </div>
                 </div>
-              </td>
-            </tr>
-            <tr class="trow">
-              <td><label class="form-label" for="email">Enter your Email:</label></td>
-              <td><input class="form-control" type="email" id="email" name="email" required></td>
-              <td>
-                <div class="valid-feedback">
-                  Looks good!
+                <div class="login-btn">
+                  <button class="btn btn-success btn-lg" id="button">Sign Up</button>
                 </div>
-              </td>
-            </tr>
-        <tr class="trow">
-          <td><label class="form-label" for="password">Enter your password:</label></td>
-          <td><input class="form-control" type="password" id="password" name="password" required></td>
-        <td>
-          <div class="valid-feedback">
-            Looks good!
+              </form>
+              <form action="/login" method="get">
+                <h4>Already a user? <button class="btn btn-success btn-lg" id="reg-btn">Login</button></h4>
+              </form>
+    
+            </div>
           </div>
-        </td>
-        </tr>
-      </table>
-    </div>
-    <button class="btn btn-success" id="reg-btn">Sign Up</button>
-    </form>
-    <form action="/login" method="get">
-      <h4>Already a user?</h4>
-    <button class="btn btn-success" id="reg-btn">Login</button>
-    </form>
-</div>
+        </div>
 <script src="javascripts/validateform.js"></script>
 </body>
 </html>
