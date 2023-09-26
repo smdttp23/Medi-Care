@@ -59,7 +59,7 @@
             <% } else {%>
               <li><a class="nav-link" href="/logout">Logout</a></li>
               <% } %>
-          <li><a class="nav-link scrollto" href="#contact">Contact Us</a></li>
+          <li><a class="nav-link scrollto" href="#contacts">Contact Us</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -441,19 +441,40 @@
         <img data-lazyloaded="1" src="https://cdn.apollohospitals.com/dev-apollohospitals/2023/05/telephone-call-2-1.png" data-src="https://cdn.apollohospitals.com/dev-apollohospitals/2023/05/telephone-call-2-1.png" data-ll-status="loaded" class="entered litespeed-loaded lazy-loaded">
       </span>
       <span class="call-txt">Call Us Now</span>
-      <span class="call-num">+91 7003145004</span>
+      <span class="call-num">+91 1234567890</span>
     </a>
     <div id="preloader"></div>
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
     <!-- contacts -->
     <section id="contacts">
     <div class="container" id="contacts">
-      <div class="newsletter js-rollover" data-radius="50">
+
+      <div class="wrapper">
+        <h2>CONTACT US</h2>
+        <form action="" method="POST">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" name="Name" id="name" placeholder="First and Last" required minlength="3" maxlength="25" />
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" name="Email" id="email" placeholder="email@domain.tld" required />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea name="Message" id="message" rows="5" placeholder="Type your message here...."></textarea>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="submit"><i class="far fa-paper-plane"></i>Send</button>
+          </div>
+        </form>
+      </div>
+      <!-- <div class="newsletter js-rollover" data-radius="50">
           <svg viewBox="0 0 694 549" width="694" height="549">
             <path d="M74.7,439.6c58.9,76.3,152.2,113.1,224.6,109C585.8,532.3,734.2,295,684.7,94.2C658.7-11.3,508.1-8.6,433.6,9.8C384.1,22,329.1,47.8,277.8,60.4c-42.5,10.5-90,7.2-130.4,17.1C60.4,99-21.1,201.9,4.9,307.6C16.7,355.3,45.2,401.4,74.7,439.6z"></path>
           </svg>
     
-          <h2 class="newsletter-title">Get info about<br>our latest technologies</h2>
+          <h2 class="newsletter-title">Get in touch with us!<br> Send us a message.</h2>
           <p class="newsletter-text">Register to our newsletter and don't miss anything anymore. We promise we will not spam you!</p>
     
           <form method="GET" action="https://kikk.us6.list-manage.com/subscribe" class="newsletter-form" target="_blank">
@@ -462,7 +483,7 @@
             <input type="email" name="EMAIL" id="email" placeholder="Enter your email">
             <button type="submit" class="button">Subscribe</button>
           </form>
-        </div>
+        </div> -->
     </div>
   </section>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>

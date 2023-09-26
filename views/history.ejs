@@ -88,7 +88,7 @@
           </td>
           <td>
             <form action="/appointment/page/<%= appointment._id %>" method="get">
-              <button type="submit">View Appointment Details</button>
+              <button class="btn-primary btn-sm" type="submit">View Appointment Details</button>
           </form>
           </td>
         </tr>
@@ -96,10 +96,10 @@
       </table>
     </div>
     <div>
-      <div><form action="/logout" method="GET"><button>Sign Out</button></form></div>
+      <div><form action="/logout" method="GET"><button class="btn-primary btn-sm hist-sgnout">Sign Out</button></form></div>
     </div>
   </section>
-    <a href="/" class="btn btn-primary">Home</a>
+
     <a href="tel:+911234567890" class="btn-quick-callcta" id="cta_Call_Us_Now">
         <span class="img">
           <img data-lazyloaded="1" src="https://cdn.apollohospitals.com/dev-apollohospitals/2023/05/telephone-call-2-1.png" data-src="https://cdn.apollohospitals.com/dev-apollohospitals/2023/05/telephone-call-2-1.png" data-ll-status="loaded" class="entered litespeed-loaded lazy-loaded">

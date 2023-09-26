@@ -1,34 +1,35 @@
-const express = require('express');
-const path = require('path');
-const mongoose = require('mongoose');
-const doc = require('./models/doctors');
-const User = require('./models/user');
-const Appt = require('./models/appt');
-const Users = require('./routes/users');
+const express = require("express");
+const path = require("path");
+const mongoose = require("mongoose");
+const doc = require("./models/doctors");
+const User = require("./models/user");
+const Appt = require("./models/appt");
+const Users = require("./routes/users");
 const bodyParser = require("body-parser");
-const methodOverride = require('method-override');
-const ejsMate = require('ejs-mate');
+const methodOverride = require("method-override");
+const ejsMate = require("ejs-mate");
 const session = require("express-session");
 // const bcrypt = require('bcrypt');
-const cookieParser = require('cookie-parser');
-const passport = require('passport');
-var LocalStrategy = require('passport-local');
-var crypto = require('crypto');
-const userRoute = require('./routes/users');
-const flash = require('connect-flash');
-const { isLoggedIn } = require('./middleware');
-require('dotenv').config({ path: path.resolve(__dirname, "./.env") });
-const PDFDocument = require('pdfkit');
-const fs = require('fs');
-const puppeteer = require('puppeteer');
-const ejs = require('ejs')
+const cookieParser = require("cookie-parser");
+const passport = require("passport");
+var LocalStrategy = require("passport-local");
+var crypto = require("crypto");
+const userRoute = require("./routes/users");
+const flash = require("connect-flash");
+const { isLoggedIn } = require("./middleware");
+require("dotenv").config({ path: path.resolve(__dirname, "./.env") });
+const PDFDocument = require("pdfkit");
+const fs = require("fs");
+const puppeteer = require("puppeteer");
+const ejs = require("ejs");
 // Initalise a new express application
 const app = express();
 const port = 3000;
 
-
-mongoose.connect(process.env.db_url, {   //mongo to mongoose
-  useNewUrlParser: true, useUnifiedTopology: true
+mongoose.connect(process.env.db_url, {
+  //mongo to mongoose
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
 });
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "Connection error"));
@@ -36,25 +37,25 @@ db.once("open", () => {
   console.log("Connected");
 });
 
-app.engine('ejs', ejsMate)
-app.set('view engine', 'ejs'); // Setting our view engine as EJS
-app.use(express.static(path.join(__dirname, 'public')));
-app.set('views', path.join(__dirname, 'views'))
+app.engine("ejs", ejsMate);
+app.set("view engine", "ejs"); // Setting our view engine as EJS
+app.use(express.static(path.join(__dirname, "public")));
+app.set("views", path.join(__dirname, "views"));
 
 const sessionConfig = {
-  secret: 'thisisasecret',
+  secret: "thisisasecret",
   resave: true,
   saveUninitialized: true,
   cookie: {
     httpOnly: true,
     expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
-    maxAge: 1000 * 60 * 60 * 24 * 7
-  }
-}
+    maxAge: 1000 * 60 * 60 * 24 * 7,
+  },
+};
 // This allows us to pass data from the form to server=>middleware
 app.use(express.urlencoded({ extended: true }));
 
-app.use(methodOverride('_method'));
+app.use(methodOverride("_method"));
 app.use(session(sessionConfig));
 app.use(flash());
 
@@ -66,101 +67,91 @@ passport.deserializeUser(User.deserializeUser());
 
 app.use((req, res, next) => {
   res.locals.currentUser = req.user;
-  res.locals.success = req.flash('success');
-  res.locals.error = req.flash('error');
+  res.locals.success = req.flash("success");
+  res.locals.error = req.flash("error");
   next();
-})
+});
 
 app.get("/", (req, res) => {
   res.render("index");
 });
-app.use('/', userRoute);
-app.get('/history', (req, res) => {
-  res.render('history')
-})
-app.get('/doctors', async (req, res) => {
-  const doctor = await doc.find({});
-  res.render('doctors/show', { doctor });
+app.use("/", userRoute);
+app.get("/history", (req, res) => {
+  res.render("history");
 });
-app.get('/api/doctors', async (req, res) => {
+app.get("/doctors", async (req, res) => {
+  const doctor = await doc.find({});
+  res.render("doctors/show", { doctor });
+});
+app.get("/api/doctors", async (req, res) => {
   const selectedDepartment = req.query.department;
 
   try {
     const doctors = await doc.find({ dept: selectedDepartment });
     console.log(doctors);
     res.json(doctors);
-  }
-  catch (error) {
-    console.error('Error fetching doctors:', error);
-    res.status(500).json({ error: 'An error occurred while fetching doctors' });
+  } catch (error) {
+    console.error("Error fetching doctors:", error);
+    res.status(500).json({ error: "An error occurred while fetching doctors" });
   }
 });
 
-app.get('/doctors/Cardiology', async (req, res) => {
-  const doctor = await doc.find({ dept: 'Cardiology' });
-  res.render('doctors/cardio', { doctor })
-
-})
-app.get('/doctors/Pediatrics', async (req, res) => {
-  const doctor = await doc.find({ dept: 'Pediatrics' });
-  res.render('doctors/pedia', { doctor })
-
-})
-app.get('/doctors/Dentistry', async (req, res) => {
-  const doctor = await doc.find({ dept: 'Dentistry' });
-  res.render('doctors/dentistry', { doctor })
-
-})
-app.get('/doctors/Dermatology', async (req, res) => {
-  const doctor = await doc.find({ dept: 'Dermatology' });
-  res.render('doctors/Derm', { doctor })
-
-})
-app.get('/doctors/Hepatology', async (req, res) => {
-  const doctor = await doc.find({ dept: 'Hepatology' });
-  res.render('doctors/Hepa', { doctor })
-
-})
-app.get('/doctors/Orthopaedics', async (req, res) => {
-  const doctor = await doc.find({ dept: 'Orthopaedics' });
-  res.render('doctors/Ortho', { doctor })
-
-})
-app.get('/doctors/Gynecology', async (req, res) => {
-  const doctor = await doc.find({ dept: 'Gynecology' });
-  res.render('doctors/Gynec', { doctor })
-
-})
-app.get('/doctors/Opthalmology', async (req, res) => {
-  const doctor = await doc.find({ dept: 'Opthalmology' });
-  res.render('doctors/Opthal', { doctor })
-
-})
-app.get('/doctors/Neurology', async (req, res) => {
-  const doctor = await doc.find({ dept: 'Neurology' });
-  res.render('doctors/Neuro', { doctor })
-
-})
+app.get("/doctors/Cardiology", async (req, res) => {
+  const doctor = await doc.find({ dept: "Cardiology" });
+  res.render("doctors/cardio", { doctor });
+});
+app.get("/doctors/Pediatrics", async (req, res) => {
+  const doctor = await doc.find({ dept: "Pediatrics" });
+  res.render("doctors/pedia", { doctor });
+});
+app.get("/doctors/Dentistry", async (req, res) => {
+  const doctor = await doc.find({ dept: "Dentistry" });
+  res.render("doctors/dentistry", { doctor });
+});
+app.get("/doctors/Dermatology", async (req, res) => {
+  const doctor = await doc.find({ dept: "Dermatology" });
+  res.render("doctors/Derm", { doctor });
+});
+app.get("/doctors/Hepatology", async (req, res) => {
+  const doctor = await doc.find({ dept: "Hepatology" });
+  res.render("doctors/Hepa", { doctor });
+});
+app.get("/doctors/Orthopaedics", async (req, res) => {
+  const doctor = await doc.find({ dept: "Orthopaedics" });
+  res.render("doctors/Ortho", { doctor });
+});
+app.get("/doctors/Gynecology", async (req, res) => {
+  const doctor = await doc.find({ dept: "Gynecology" });
+  res.render("doctors/Gynec", { doctor });
+});
+app.get("/doctors/Opthalmology", async (req, res) => {
+  const doctor = await doc.find({ dept: "Opthalmology" });
+  res.render("doctors/Opthal", { doctor });
+});
+app.get("/doctors/Neurology", async (req, res) => {
+  const doctor = await doc.find({ dept: "Neurology" });
+  res.render("doctors/Neuro", { doctor });
+});
 
 app.get("/appointment", isLoggedIn, async (req, res) => {
   const doctor = await doc.find({});
-  res.render('appointment', { doctor });
+  res.render("appointment", { doctor });
 });
-app.get('/appointment/history', isLoggedIn, async (req, res) => {
+app.get("/appointment/history", isLoggedIn, async (req, res) => {
   const userEmail = req.user.email;
   console.log(userEmail);
   const bookings = await Appt.find({ userEmail: userEmail });
   bookings.forEach((appointment) => {
-    console.log('Name:', appointment.name);
-    console.log('Phone Number:', appointment.phno);
-    console.log('Age:', appointment.age);
-    console.log('Gender:', appointment.gender);
-    console.log('Weight:', appointment.weight);
-    console.log('Department:', appointment.Select1);
-    console.log('Doctor Consulted:', appointment.Select2);
-    console.log('Appointment Time:', appointment.apptTime);
-  })
-  res.render('history', { bookings });
+    console.log("Name:", appointment.name);
+    console.log("Phone Number:", appointment.phno);
+    console.log("Age:", appointment.age);
+    console.log("Gender:", appointment.gender);
+    console.log("Weight:", appointment.weight);
+    console.log("Department:", appointment.Select1);
+    console.log("Doctor Consulted:", appointment.Select2);
+    console.log("Appointment Time:", appointment.apptTime);
+  });
+  res.render("history", { bookings });
 });
 app.post("/appointment/history", isLoggedIn, async (req, res) => {
   const appointment = await new Appt({
@@ -172,9 +163,11 @@ app.post("/appointment/history", isLoggedIn, async (req, res) => {
     userEmail: req.user.email,
     Select1: req.body.Select1,
     Select2: req.body.Select2,
-    apptTime: req.body.timeSlot
+    apptTime: req.body.timeSlot,
   }).save();
-  res.send('<script>alert("Appointment Booked Successfully! Please check your Medical Records for further updates"); window.location.href = "/";</script>');
+  res.send(
+    '<script>alert("Appointment Booked Successfully! Please check your Medical Records for further updates"); window.location.href = "/";</script>'
+  );
 });
 
 // app.post('/pdf/:id', async (req, res) => {
@@ -191,64 +184,46 @@ app.post("/appointment/history", isLoggedIn, async (req, res) => {
 //   docu.end();
 // });
 
-app.get('/appointment/page/:id', async (req, res) => {
+app.get("/appointment/page/:id", async (req, res) => {
   const appointID = req.params.id;
+  // const showPdfButton = document.querySelector('#pdf');
   const docuData = await Appt.findById(appointID);
-  res.render('page', { docuData });
-})
-app.get('/appointment/page-generate/:id', async (req, res) => {
+  res.render("page", { docuData });
+});
+app.get("/appointment/page-generate/:id", async (req, res) => {
   try {
     const id = req.params.id;
     const docuData = await Appt.findById(id);
-    const html = await ejs.renderFile('views/page.ejs', { docuData });
+    const html = await ejs.renderFile("views/page.ejs", { docuData });
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
     await page.setContent(html);
-    // Generate PDF 
+    // const showPdfButton = document.querySelector('#pdf');
+    await page.addStyleTag({ path: __dirname + "/public/styles/page.css" });
+    await page.addStyleTag({ path: __dirname + "/public/styles/main.css" });
+    // Generate PDF
     const pdfn = await page.pdf({
       path: path.join(__dirname + `/public/file/${docuData.name}_appt.pdf`), // Output PDF file path
       printBackground: true,
-      format: 'A4'
+      format: "A4",
     });
+
     await browser.close();
-    const pdfURL = path.join(__dirname + `/public/file/${docuData.name}_appt.pdf`);
-    // const browser = await puppeteer.launch();
-    // const newPage = await browser.newPage();
-    // const id = req.params.id;
-    // const ejsTemplate = fs.readFileSync('views/page.ejs', 'utf-8');
-    // await newPage.setContent(ejsTemplate);
-    // await newPage.goto(`http://localhost:3000/appointment/page/${id}`, {
-    //   waitUntil: "networkidle2"
-    // });
-    // newPage.setViewport({ width: 1680, height: 1050 });
-    // const todayDate = new Date();
-    // const pdfn = await newPage.pdf({
-    //   path: `${path.join(__dirname, '../public/files', todayDate.getTime() + ".pdf")}`,
-    //   format: "A4"
-    // });
-    // await browser.close();
-    // const pdfURL = path.join(__dirname, '../public/files', todayDate.getTime() + ".pdf");
+    const pdfURL = path.join(
+      __dirname + `/public/file/${docuData.name}_appt.pdf`
+    );
     res.set({
       "Content-Type": "application/pdf",
-      "Content-Length": pdfn.length
+      "Content-Length": pdfn.length,
     });
     res.sendFile(pdfURL);
-
   } catch (error) {
     console.log(error.message);
   }
-})
+});
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
-
-
-
-
-
-
-
-
 
 // app.get('/register', (req, res)=>{
 //   res.render("register");
@@ -302,3 +277,67 @@ app.listen(port, () => {
 //   console.log(hash);
 // }
 // hashPassword('monkey');
+// const browser = await puppeteer.launch();
+// const newPage = await browser.newPage();
+// const id = req.params.id;
+// const ejsTemplate = fs.readFileSync('views/page.ejs', 'utf-8');
+// await newPage.setContent(ejsTemplate);
+// await newPage.goto(`http://localhost:3000/appointment/page/${id}`, {
+//   waitUntil: "networkidle2"
+// });
+// newPage.setViewport({ width: 1680, height: 1050 });
+// const todayDate = new Date();
+// const pdfn = await newPage.pdf({
+//   path: `${path.join(__dirname, '../public/files', todayDate.getTime() + ".pdf")}`,
+//   format: "A4"
+// });
+// await browser.close();
+// const pdfURL = path.join(__dirname, '../public/files', todayDate.getTime() + ".pdf");
+// const nameEl = document.querySelector("#name");
+// const emailEl = document.querySelector("#email");
+// const companyNameEl = document.querySelector("#company-name");
+// const messageEl = document.querySelector("#message");
+
+// const form = document.querySelector("#submit-form");
+
+// function checkValidations() {
+//   let letters = /^[a-zA-Z\s]*$/;
+//   const name = nameEl.value.trim();
+//   const email = emailEl.value.trim();
+//   const companyName = companyNameEl.value.trim();
+//   const message = messageEl.value.trim();
+//   if (name === "") {
+//      document.querySelector(".name-error").classList.add("error");
+//       document.querySelector(".name-error").innerText =
+//         "Please fill out this field!";
+//   } else {
+//     if (!letters.test(name)) {
+//       document.querySelector(".name-error").classList.add("error");
+//       document.querySelector(".name-error").innerText =
+//         "Please enter only characters!";
+//     } else {
+      
+//     }
+//   }
+//   if (email === "") {
+//      document.querySelector(".name-error").classList.add("error");
+//       document.querySelector(".name-error").innerText =
+//         "Please fill out this field!";
+//   } else {
+//     if (!letters.test(name)) {
+//       document.querySelector(".name-error").classList.add("error");
+//       document.querySelector(".name-error").innerText =
+//         "Please enter only characters!";
+//     } else {
+      
+//     }
+//   }
+// }
+
+// function reset() {
+//   nameEl = "";
+//   emailEl = "";
+//   companyNameEl = "";
+//   messageEl = "";
+//   document.querySelector(".name-error").innerText = "";
+// }

@@ -14,10 +14,10 @@
 }
 .page-table{
   padding-top: 15px;
-  margin-left: 25%;
+  display: flex;
+  justify-content: center;
   font-size: larger;
   border-style: double;
-  border-radius: 5%;
 }
 .h2{
     background-color: #fff;
@@ -33,23 +33,12 @@
     text-align: center;
     
 }
-.btn{
+.pdf-button{
     margin-left: 30%;
     margin-top: 3%;
 }
-.prescription{
-    height: 350px;
-}
-.stamp{
-    text-align: right;
-    margin-right: 10px;
-}
-.sign{
-    text-align: left;
-    margin-left: 10px;
-}
-footer{
+/* footer{
     background: linear-gradient(115deg,#2c4964,#007c9d,#ACB1D6,#12bcfe,#1977cc);
     height: 30px;
     text-align: center;
-}
+} */

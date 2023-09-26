@@ -5,7 +5,7 @@ const apptSchema = new Schema({
     name: String,
     phno: Number,
     age: Number,
-    weight: Number,
+    gender: String,
     height: Number,
     userEmail: String,
     Select1: String,
